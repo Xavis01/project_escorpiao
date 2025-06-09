@@ -1,11 +1,10 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import NavBar from './components/NavBar.vue'
 </script>
 
 <template>
-  <div class="text-4xl font-bold text-purple-600">
-    🍇 Bem-vindo à Soda Escorpião!
-  </div>
+  <NavBar />
+  <router-view />
 </template>
 
 
