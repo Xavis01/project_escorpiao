@@ -2,10 +2,12 @@
   <header class="bg-white shadow-md fixed top-0 left-0 w-full z-50 h-32">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
       <!-- Logo -->
-      <div class="flex items-center space-x-3">
-        <img :src="Logo" alt="Logo Soda Escorpião" class="h-24 ml-10 w-auto object-contain" />
-        <!-- <span class="text-xl font-montserrat font-bold text-red-600">SODA ESCORPIÃO</span> -->
-      </div>
+      <router-link to="/#inicio">
+        <div class="flex items-center justify-center h-full ml-10">
+          <img :src="Logo" alt="Logo Soda Escorpião" class="h-24 w-auto object-contain" />
+          <!-- <span class="text-xl font-montserrat font-bold text-red-600">SODA ESCORPIÃO</span> -->
+        </div>
+      </router-link>
 
       <!-- Navegação Desktop -->
       <nav class="hidden md:flex space-x-12 mr-8 text-gray-600 font-semibold font-montserrat tracking-wide">
