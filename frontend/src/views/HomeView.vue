@@ -110,8 +110,8 @@
                 </div>
 
                 <!-- Coluna da direita: conteúdo da receita -->
-                <transition name="fade">
-                    <div v-if="receitaAberta !== null"
+                <transition name="fade" mode="out-in">
+                    <div v-if="receitaAberta !== null" key="receita"
                         class="flex-1 bg-white border rounded-lg shadow-md p-8 space-y-8 transition-all duration-500">
 
                         <!-- Coluna 1: Ingredientes e preparo -->
@@ -120,7 +120,10 @@
                             <!-- Ingredientes -->
                             <div v-if="receitaAberta === 1">
                                 <h3 class="text-2xl font-bold mb-4 text-red-700">Sabão em Barra</h3>
-                                <h4 class="text-xl font-semibold mb-3">Ingredientes:</h4>
+                                <div class="flex items-center justify-start mb-3">
+                                    <ScrollText class="mr-1"/>
+                                    <h4 class="text-xl font-semibold">Ingredientes:</h4>
+                                </div>
                                 <ul class="list-disc list-inside mb-4 space-y-1 text-gray-700">
                                     <li>1 kg de soda cáustica Escorpião</li>
                                     <li>2 litros de água</li>
@@ -133,7 +136,10 @@
 
                             <div v-if="receitaAberta === 2">
                                 <h3 class="text-2xl font-bold mb-4 text-red-700">Sabão Líquido do Pará</h3>
-                                <h4 class="text-xl font-semibold mb-3">Ingredientes:</h4>
+                                <div class="flex items-center justify-start mb-3">
+                                    <ScrollText class="mr-1"/>
+                                    <h4 class="text-xl font-semibold">Ingredientes:</h4>
+                                </div>
                                 <ul class="list-disc list-inside mb-4 space-y-1 text-gray-700">
                                     <li>1 litro de água morna</li>
                                     <li>500 gramas de soda cáustica Escorpião</li>
@@ -149,7 +155,10 @@
 
                             <!-- Vídeo -->
                             <div>
-                                <h4 class="text-xl font-semibold mb-3">Vídeo tutorial:</h4>
+                                <div class="flex items-center justify-start mb-3">
+                                    <Youtube class="mr-1" />
+                                    <h4 class="text-xl font-semibold ">Vídeo tutorial:</h4>
+                                </div>
                                 <transition name="fade-video" mode="out-in">
                                     <iframe
                                         v-if="videoReceitas[receitaAberta]"
@@ -166,7 +175,10 @@
 
                         <!-- Linha 2: Modo de Preparo -->
                         <div>
-                            <h4 class="text-xl font-semibold mb-3">Modo de preparo:</h4>
+                            <div class="flex items-center justify-start mb-3">
+                                <ListChecks class="mr-1" />
+                                <h4 class="text-xl font-semibold">Modo de preparo:</h4>
+                            </div>
                             <div class="text-gray-700 leading-relaxed space-y-4" v-if="receitaAberta === 1">
                                 <p><span class="font-semibold">Passo 1:</span> Coloque no balde a soda cáustica e adicione lentamente 2 litros de água quente.</p>
                                 <p><span class="font-semibold">Passo 2:</span> Misture com muito cuidado utilizando a colher de pau até a soda cáustica dissolver completamente.</p>
@@ -191,14 +203,14 @@
                             </div>
                         </div>
                     </div>
-                </transition>
 
                 <!-- Quando nenhuma receita estiver aberta -->
-                <div v-if="receitaAberta === null" class="flex-1 flex flex-col items-center justify-center bg-white border rounded-lg shadow-md p-10 text-center text-gray-600 space-y-4">
+                <div v-else key="nenhuma" class="flex-1 flex flex-col items-center justify-center bg-white border rounded-lg shadow-md p-10 text-center text-gray-600 space-y-4">
                     <BookMarked class="w-20 h-20 opacity-50"/>
                     <h3 class="text-xl font-semibold">Nenhuma receita selecionada</h3>
                     <p>Escolha uma das receitas ao lado para ver o passo a passo completo.</p>
                 </div>
+                </transition>
             </div>      
         </section>
 
@@ -242,7 +254,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { ChevronLeft, BookMarked, TriangleAlert, BookAlert } from 'lucide-vue-next'
+import { ChevronLeft, BookMarked, TriangleAlert, BookAlert, ScrollText, Youtube, ListChecks } from 'lucide-vue-next'
 
 import Capa from '../assets/identidade/home_teste3.png'
 
