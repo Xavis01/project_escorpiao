@@ -81,7 +81,7 @@
             <div class="flex flex-col md:flex-row gap-8">
 
                 <!-- Coluna da esquerda: botões -->
-                <div class="flex flex-col w-full md:w-1/3 space-y-4">
+                <div class="flex flex-col w-full md:w-1/3 space-y-8">
                     <!-- Botão Receita 1 -->
                     <button @click="toggleReceita(1)"
                         class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-gray-50 hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98]"
@@ -99,6 +99,14 @@
                         <ChevronLeft class="w-5 h-5 transform transition-transform duration-300"
                             :class="{ 'rotate-180': receitaAberta === 2 }" />
                     </button>
+
+                    <router-link to="/info">
+                        <button
+                            class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-gray-50 hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98]">
+                            Informações de manuseio correto
+                            <BookAlert class="ml-7"/>
+                        </button>
+                    </router-link>
                 </div>
 
                 <!-- Coluna da direita: conteúdo da receita -->
@@ -185,7 +193,13 @@
                     </div>
                 </transition>
 
-            </div>
+                <!-- Quando nenhuma receita estiver aberta -->
+                <div v-if="receitaAberta === null" class="flex-1 flex flex-col items-center justify-center bg-white border rounded-lg shadow-md p-10 text-center text-gray-600 space-y-4">
+                    <BookMarked class="w-20 h-20 opacity-50"/>
+                    <h3 class="text-xl font-semibold">Nenhuma receita selecionada</h3>
+                    <p>Escolha uma das receitas ao lado para ver o passo a passo completo.</p>
+                </div>
+            </div>      
         </section>
 
 
@@ -228,7 +242,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { ChevronLeft } from 'lucide-vue-next'
+import { ChevronLeft, BookMarked, TriangleAlert, BookAlert } from 'lucide-vue-next'
 
 import Capa from '../assets/identidade/home_teste3.png'
 

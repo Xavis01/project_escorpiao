@@ -9,7 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "lucide-vue-next": "^0.513.0",
+    "lucide": "^0.515.0",
+    "lucide-vue-next": "^0.515.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.1"
   },

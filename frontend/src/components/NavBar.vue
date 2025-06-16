@@ -37,7 +37,7 @@
       </nav>
 
       <!-- Botões redes sociais (desktop) -->
-<div class="hidden md:flex flex-col items-end justify-center gap-3 mr-4">
+<div class="hidden md:flex items-end justify-center gap-3">
   <a
     href="https://www.instagram.com/sodaescorpiao/"
     target="_blank"
