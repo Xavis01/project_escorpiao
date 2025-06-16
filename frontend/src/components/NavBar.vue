@@ -10,7 +10,7 @@
       </router-link>
 
       <!-- Navegação Desktop -->
-      <nav class="hidden md:flex space-x-12 mr-8 text-gray-600 font-semibold font-montserrat tracking-wide">
+      <nav class="hidden md:flex space-x-12 mr-8 flex-grow justify-end text-gray-600 font-semibold font-montserrat tracking-wide">
         <router-link to="/#empresa" class="group relative inline-block hover:text-red-600 transition">EMPRESA
           <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
         </router-link>
@@ -36,6 +36,29 @@
         </router-link>
       </nav>
 
+      <!-- Botões redes sociais (desktop) -->
+<div class="hidden md:flex flex-col items-end justify-center gap-3 mr-4">
+  <a
+    href="https://www.instagram.com/sodaescorpiao/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+    class="text-red-700 hover:text-red-500 transition"
+  >
+    <Instagram class="w-6 h-6" />
+  </a>
+  <a
+    href="https://www.facebook.com/61559856353973/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook"
+    class="text-red-700 hover:text-red-500 transition"
+  >
+    <Facebook class="w-6 h-6" />
+  </a>
+</div>
+
+
       <!-- Menu Mobile Button -->
       <button class="md:hidden" @click="menuOpen = !menuOpen">
         <Menu v-if="!menuOpen" class="w-6 h-6 text-red-800" />
@@ -59,7 +82,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Menu, X } from 'lucide-vue-next'
+import { Menu, X, Instagram, Facebook } from 'lucide-vue-next'
 import Logo from '../assets/LogoEscorpiao.png'
 
 const menuOpen = ref(false)

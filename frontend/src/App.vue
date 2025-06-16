@@ -1,9 +1,11 @@
 <script setup>
 import NavBar from './components/NavBar.vue'
+import WhatsappButton from './components/WhatsappButton.vue';
 </script>
 
 <template>
   <NavBar />
+  <WhatsappButton />
   <router-view />
 </template>
 
