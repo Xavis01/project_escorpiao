@@ -26,21 +26,15 @@
         <router-link to="/info" class="group relative inline-block transition hover:text-red-800"
           :class="activeSection === 'info' ? 'text-red-600 font-bold' : 'text-gray-600'">
           INFORMAÇÕES
-          <span class="absolute left-0 bottom-0 h-0.5 transition-all duration-300" :class="activeSection === section.id
-            ? 'w-full bg-red-600 group-hover:bg-red-800'
-            : 'w-0 bg-red-800 group-hover:w-full'">
-          </span>
-
+          <span class="absolute left-0 bottom-0 h-0.5 transition-all duration-300"
+            :class="activeSection === 'info' ? 'w-full bg-red-600 group-hover:bg-red-800' : 'w-0 bg-red-800 group-hover:w-full'"></span>
         </router-link>
 
         <router-link to="/contato" class="group relative inline-block transition hover:text-red-800"
           :class="activeSection === 'contato' ? 'text-red-600 font-bold' : 'text-gray-600'">
           CONTATO
-          <span class="absolute left-0 bottom-0 h-0.5 transition-all duration-300" :class="activeSection === section.id
-            ? 'w-full bg-red-600 group-hover:bg-red-800'
-            : 'w-0 bg-red-800 group-hover:w-full'">
-          </span>
-
+          <span class="absolute left-0 bottom-0 h-0.5 transition-all duration-300"
+            :class="activeSection === 'contato' ? 'w-full bg-red-600 group-hover:bg-red-800' : 'w-0 bg-red-800 group-hover:w-full'"></span>
         </router-link>
       </nav>
 
