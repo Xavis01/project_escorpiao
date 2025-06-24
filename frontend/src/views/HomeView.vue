@@ -75,16 +75,16 @@
         </section>
 
         <!-- Section Receitas -->
-        <section id="receitas" class="max-w-7xl mx-auto px-6 pt-32 pb-16 scroll-mt-32 font-montserrat">
+        <section id="receitas" class="max-w-6xl mx-auto px-6 pt-32 pb-16 scroll-mt-32 font-montserrat">
             <h2 class="text-3xl font-extrabold text-red-700 mb-10">RECEITAS</h2>
 
             <div class="flex flex-col md:flex-row gap-8">
 
                 <!-- Coluna da esquerda: botões -->
-                <div class="flex flex-col w-full md:w-1/3 space-y-8">
+                <div class="flex flex-col w-full md:w-2/5 space-y-8">
                     <!-- Botão Receita 1 -->
                     <button @click="toggleReceita(1)"
-                        class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-gray-50 hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98]"
+                        class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98]"
                         :class="{ 'bg-red-100 border-red-400 text-red-700': receitaAberta === 1 }">
                         Receita para Sabão em Barra
                         <ChevronLeft class="w-5 h-5 transform transition-transform duration-300"
@@ -93,19 +93,18 @@
 
                     <!-- Botão Receita 2 -->
                     <button @click="toggleReceita(2)"
-                        class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-gray-50 hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98]"
+                        class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98]"
                         :class="{ 'bg-red-100 border-red-400 text-red-700': receitaAberta === 2 }">
                         Receita para Sabão Líquido do Pará
                         <ChevronLeft class="w-5 h-5 transform transition-transform duration-300"
                             :class="{ 'rotate-180': receitaAberta === 2 }" />
                     </button>
 
-                    <router-link to="/info">
-                        <button
-                            class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-gray-50 hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98]">
-                            Informações de manuseio correto
-                            <BookAlert class="ml-7"/>
-                        </button>
+                    <router-link
+                        class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98]"
+                        to="/info">
+                        Informações de manuseio correto
+                        <BookAlert />
                     </router-link>
                 </div>
 
@@ -121,7 +120,7 @@
                             <div v-if="receitaAberta === 1">
                                 <h3 class="text-2xl font-bold mb-4 text-red-700">Sabão em Barra</h3>
                                 <div class="flex items-center justify-start mb-3">
-                                    <ScrollText class="mr-1"/>
+                                    <ScrollText class="mr-1" />
                                     <h4 class="text-xl font-semibold">Ingredientes:</h4>
                                 </div>
                                 <ul class="list-disc list-inside mb-4 space-y-1 text-gray-700">
@@ -130,14 +129,15 @@
                                     <li>4 litros de óleo de cozinha</li>
                                     <li>1 litro de álcool</li>
                                     <li>5 ml de essência</li>
-                                    <li>Opcional: você pode colocar elementos decorativos, como ervas aromáticas, especiarias, flores secas, etc.</li>
+                                    <li>Opcional: você pode colocar elementos decorativos, como ervas aromáticas,
+                                        especiarias, flores secas, etc.</li>
                                 </ul>
                             </div>
 
                             <div v-if="receitaAberta === 2">
                                 <h3 class="text-2xl font-bold mb-4 text-red-700">Sabão Líquido do Pará</h3>
                                 <div class="flex items-center justify-start mb-3">
-                                    <ScrollText class="mr-1"/>
+                                    <ScrollText class="mr-1" />
                                     <h4 class="text-xl font-semibold">Ingredientes:</h4>
                                 </div>
                                 <ul class="list-disc list-inside mb-4 space-y-1 text-gray-700">
@@ -160,15 +160,9 @@
                                     <h4 class="text-xl font-semibold ">Vídeo tutorial:</h4>
                                 </div>
                                 <transition name="fade-video" mode="out-in">
-                                    <iframe
-                                        v-if="videoReceitas[receitaAberta]"
-                                        :key="receitaAberta"
-                                        class="w-full h-64 rounded-lg"
-                                        :src="videoReceitas[receitaAberta]"
-                                        title="Vídeo da Receita"
-                                        frameborder="0"
-                                        allowfullscreen
-                                    ></iframe>
+                                    <iframe v-if="videoReceitas[receitaAberta]" :key="receitaAberta"
+                                        class="w-full h-64 rounded-lg" :src="videoReceitas[receitaAberta]"
+                                        title="Vídeo da Receita" frameborder="0" allowfullscreen></iframe>
                                 </transition>
                             </div>
                         </div>
@@ -180,41 +174,97 @@
                                 <h4 class="text-xl font-semibold">Modo de preparo:</h4>
                             </div>
                             <div class="text-gray-700 leading-relaxed space-y-4" v-if="receitaAberta === 1">
-                                <p><span class="font-semibold">Passo 1:</span> Coloque no balde a soda cáustica e adicione lentamente 2 litros de água quente.</p>
-                                <p><span class="font-semibold">Passo 2:</span> Misture com muito cuidado utilizando a colher de pau até a soda cáustica dissolver completamente.</p>
-                                <p><span class="font-semibold">Passo 3:</span> Junte os 4 litros de óleo e continue mexendo por 20 minutos.</p>
+                                <p><span class="font-semibold">Passo 1:</span> Coloque no balde a soda cáustica e
+                                    adicione lentamente 2 litros de água quente.</p>
+                                <p><span class="font-semibold">Passo 2:</span> Misture com muito cuidado utilizando a
+                                    colher de pau até a soda cáustica dissolver completamente.</p>
+                                <p><span class="font-semibold">Passo 3:</span> Junte os 4 litros de óleo e continue
+                                    mexendo por 20 minutos.</p>
                                 <p><span class="font-semibold">Passo 4:</span> Acrescente o álcool e a essência.</p>
-                                <p><span class="font-semibold">Extra:</span> Se quiser, este é o momento para colocar elementos de decoração. </p>
-                                <p><span class="font-semibold">Passo 5:</span> Misture até obter uma pasta consistente.</p>
-                                <p><span class="font-semibold">Passo 6:</span> Despeje o conteúdo em um caixote de madeira forrado com um pano ou em formas, espalhe bem e acomode a pasta dentro do recipiente</p>
+                                <p><span class="font-semibold">Extra:</span> Se quiser, este é o momento para colocar
+                                    elementos de decoração. </p>
+                                <p><span class="font-semibold">Passo 5:</span> Misture até obter uma pasta consistente.
+                                </p>
+                                <p><span class="font-semibold">Passo 6:</span> Despeje o conteúdo em um caixote de
+                                    madeira forrado com um pano ou em formas, espalhe bem e acomode a pasta dentro do
+                                    recipiente</p>
                                 <p><span class="font-semibold">Passo 7:</span> Deixe secar por no mínimo 24 horas.</p>
-                                <p><span class="font-semibold">Passo 8:</span> Após a secagem, corte o sabão no tamanho desejado e enrole os pedaços em papel filme.</p>
+                                <p><span class="font-semibold">Passo 8:</span> Após a secagem, corte o sabão no tamanho
+                                    desejado e enrole os pedaços em papel filme.</p>
                             </div>
 
                             <div class="text-gray-700 leading-relaxed space-y-4" v-if="receitaAberta === 2">
-                                <p><span class="font-semibold">Passo 1:</span> Dilua a Soda Cáustica Escorpião na água morna, com cuidado.</p>
-                                <p><span class="font-semibold">Passo 2:</span> Em seguida, adicione o óleo e o álcool, mexendo bem por cerca de 10 minutos, até atingir o ponto de creme.</p>
-                                <p><span class="font-semibold">Passo 3:</span> Acrescente a água sanitária e a água fria. Mexa bem até que a mistura fique uniforme.</p>
-                                <p><span class="font-semibold">Passo 4:</span> Dilua o bicarbonato em um copo com água e depois adicione à mistura.</p>
-                                <p><span class="font-semibold">Extra:</span> Se desejar, este é o momento ideal para adicionar o corante e a essência.</p>
-                                <p><span class="font-semibold">Passo 5:</span> Deixe a mistura descansar por 24 horas.</p>
+                                <p><span class="font-semibold">Passo 1:</span> Dilua a Soda Cáustica Escorpião na água
+                                    morna, com cuidado.</p>
+                                <p><span class="font-semibold">Passo 2:</span> Em seguida, adicione o óleo e o álcool,
+                                    mexendo bem por cerca de 10 minutos, até atingir o ponto de creme.</p>
+                                <p><span class="font-semibold">Passo 3:</span> Acrescente a água sanitária e a água
+                                    fria. Mexa bem até que a mistura fique uniforme.</p>
+                                <p><span class="font-semibold">Passo 4:</span> Dilua o bicarbonato em um copo com água e
+                                    depois adicione à mistura.</p>
+                                <p><span class="font-semibold">Extra:</span> Se desejar, este é o momento ideal para
+                                    adicionar o corante e a essência.</p>
+                                <p><span class="font-semibold">Passo 5:</span> Deixe a mistura descansar por 24 horas.
+                                </p>
                                 <br><br>
-                                Esse sabão pode ser utilizado para lavar roupas, louças ou em serviços domésticos gerais.
+                                Esse sabão pode ser utilizado para lavar roupas, louças ou em serviços domésticos
+                                gerais.
                             </div>
                         </div>
                     </div>
 
-                <!-- Quando nenhuma receita estiver aberta -->
-                <div v-else key="nenhuma" class="flex-1 flex flex-col items-center justify-center bg-white border rounded-lg shadow-md p-10 text-center text-gray-600 space-y-4">
-                    <BookMarked class="w-20 h-20 opacity-50"/>
-                    <h3 class="text-xl font-semibold">Nenhuma receita selecionada</h3>
-                    <p>Escolha uma das receitas ao lado para ver o passo a passo completo.</p>
-                </div>
+                    <!-- Quando nenhuma receita estiver aberta -->
+                    <div v-else key="nenhuma"
+                        class="flex-1 flex flex-col items-center justify-center bg-white border rounded-lg shadow-md p-10 text-center text-gray-600 space-y-4">
+                        <BookMarked class="w-20 h-20 opacity-50" />
+                        <h3 class="text-xl font-semibold">Nenhuma receita selecionada</h3>
+                        <p>Escolha uma das receitas ao lado para ver o passo a passo completo.</p>
+                    </div>
                 </transition>
-            </div>      
+            </div>
         </section>
 
 
+        <section id="ondecomprar" class="max-w-6xl mx-auto px-6 pt-32 scroll-mt-32 font-montserrat">
+            <h2 class="text-3xl font-extrabold text-red-700 mb-6 font-montserrat">ONDE COMPRAR?</h2>
+            <p class="text-gray-700 text-lg mb-8 leading-relaxed font-montserrat">
+                A Soda Cáustica Escorpião, localizada em Serra - Espírito Santo, é referência nacional no fornecimento
+                de soda cáustica para distribuidores que valorizam tradição, qualidade e agilidade.
+                <br>
+                Nosso produto pode ser encontrado nos seguintes estabelecimentos:
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                <figure class="flex flex-col items-center">
+                    <img :src="ondeComprarImages[0]" alt="Mercados" class="w-40 h-40 object-contain mb-3 rounded-lg" />
+                    <figcaption class="text-center text-gray-700 font-semibold text-lg">
+                        Mercados
+                    </figcaption>
+                </figure>
+                <figure class="flex flex-col items-center">
+                    <img :src="ondeComprarImages[1]" alt="Agropecuárias"
+                        class="w-40 h-40 object-contain mb-3 rounded-lg" />
+                    <figcaption class="text-center text-gray-700 font-semibold text-lg">
+                        Agropecuárias
+                    </figcaption>
+                </figure>
+                <figure class="flex flex-col items-center">
+                    <img :src="ondeComprarImages[2]" alt="Lojas de produtos de limpeza"
+                        class="w-40 h-40 object-contain mb-3 rounded-lg" />
+                    <figcaption class="text-center text-gray-700 font-semibold text-lg">
+                        Lojas de produtos <br> de limpeza
+                    </figcaption>
+                </figure>
+                <figure class="flex flex-col items-center">
+                    <img :src="ondeComprarImages[3]" alt="Loja de material de construção"
+                        class="w-40 h-40 object-contain mb-3 rounded-lg" />
+                    <figcaption class="text-center text-gray-700 font-semibold text-lg">
+                        Loja de material <br> de construção
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+        <br><br><br>
     </div>
 
 </template>
@@ -240,21 +290,26 @@
     max-height: 1000px;
 }
 
-.fade-video-enter-active, .fade-video-leave-active {
-  transition: opacity 0.5s ease;
+.fade-video-enter-active,
+.fade-video-leave-active {
+    transition: opacity 0.5s ease;
 }
-.fade-video-enter-from, .fade-video-leave-to {
-  opacity: 0;
+
+.fade-video-enter-from,
+.fade-video-leave-to {
+    opacity: 0;
 }
-.fade-video-enter-to, .fade-video-leave-from {
-  opacity: 1;
+
+.fade-video-enter-to,
+.fade-video-leave-from {
+    opacity: 1;
 }
 </style>
 
 
 <script setup>
 import { ref } from 'vue'
-import { ChevronLeft, BookMarked, TriangleAlert, BookAlert, ScrollText, Youtube, ListChecks } from 'lucide-vue-next'
+import { ChevronLeft, Instagram, Facebook, BookMarked, TriangleAlert, BookAlert, ScrollText, Youtube, ListChecks } from 'lucide-vue-next'
 
 import Capa from '../assets/identidade/home_teste3.png'
 
@@ -268,6 +323,11 @@ import sobre6 from '../assets/empresa/sobre_6.webp'
 import sobre7 from '../assets/empresa/sobre_7.webp'
 import sobre8 from '../assets/empresa/sobre_8.webp'
 
+import local1 from '../assets/ondeComprar/1.png'
+import local2 from '../assets/ondeComprar/2.png'
+import local3 from '../assets/ondeComprar/3.png'
+import local4 from '../assets/ondeComprar/4.png'
+
 import soda500g from '../assets/produto/sodaCaustica_500g.webp'
 import soda1kg from '../assets/produto/sodaCaustica_1kg.webp'
 
@@ -280,6 +340,14 @@ const empresaImages = [
     sobre6,
     sobre7,
     sobre8
+]
+
+const ondeComprarImages = [
+    local1,
+    local2,
+    local3,
+    local4,
+
 ]
 
 const receitaAberta = ref(null)
