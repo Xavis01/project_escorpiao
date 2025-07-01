@@ -78,10 +78,10 @@
         <section id="receitas" class="max-w-6xl mx-auto px-6 pt-32 pb-16 scroll-mt-32 font-montserrat">
             <h2 class="text-3xl font-extrabold text-red-700 mb-10">RECEITAS</h2>
 
-            <div class="flex flex-col md:flex-row gap-8">
+            <div class="flex flex-col md:flex-row gap-8 items-stretch">
 
                 <!-- Coluna da esquerda: botões -->
-                <div class="flex flex-col w-full md:w-2/5 space-y-8">
+                <div class="flex flex-col w-full md:w-2/5 space-y-11">
                     <!-- Botão Receita 1 -->
                     <button @click="toggleReceita(1)"
                         class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98]"

@@ -134,9 +134,21 @@ watch(() => route.path, (newPath) => {
     handleScroll()
   } else {
     window.removeEventListener('scroll', handleScroll)
-    activeSection.value = newPath.replace('/', '') // 'info' ou 'contato'
+    // Se for '/info', destaca 'info'
+    if (newPath.startsWith('/info')) {
+      activeSection.value = 'info'
+    }
+    // Se for '/contato' ou qualquer subrota de contato, destaca 'contato'
+    else if (newPath.startsWith('/contato')) {
+      activeSection.value = 'contato'
+    }
+    // Caso contrário, tenta pegar o nome da rota principal
+    else {
+      activeSection.value = newPath.replace('/', '')
+    }
   }
 })
+
 </script>
 
 <style scoped>
