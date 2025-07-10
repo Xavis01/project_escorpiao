@@ -13,11 +13,22 @@
 
                 <!-- Contato -->
                 <div class="md:w-1/4">
-                    <h3 class="text-lg font-bold text-gray-900 mb-4 font-montserrat">CONTATO</h3>
+                    <RouterLink to="/contato">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4 font-montserrat hover:text-gray-700">CONTATO</h3>
+                    </RouterLink>
                     <ul class="space-y-2 text-sm text-gray-700 font-montserrat tracking-wide">
-                        <li>Serra, Espírito Santo</li>
-                        <li>adm@sodaescorpiao.com.br</li>
-                        <li>(27) 99850-7166</li>
+                        <div class="flex gap-2">
+                            <MapPinned size="18"/>
+                            <li>Serra, Espírito Santo</li>
+                        </div>
+                        <div class="flex gap-2">
+                            <Mail size="18"/>
+                            <li>adm@sodaescorpiao.com.br</li>
+                        </div>
+                        <div class="flex gap-2">
+                            <Phone size="18"/>
+                            <li>(27) 99850-7166</li>
+                        </div>
                     </ul>
                 </div>
 
@@ -50,5 +61,5 @@
 
 
 <script setup>
-import { Instagram, Facebook } from 'lucide-vue-next';
+import { Instagram, Facebook, MapPinned, Mail, Phone } from 'lucide-vue-next';
 </script>

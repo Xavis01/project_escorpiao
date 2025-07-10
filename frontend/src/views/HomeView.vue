@@ -17,7 +17,7 @@
                 <!-- Título -->
                 <div class="flex items-center gap-4 ">
                     <h2 class="text-3xl font-extrabold mt-6 text-red-700 mb-6 font-montserrat">EMPRESA</h2>
-                    <Building2 class="text-red-700 " stroke-width="2" size="30" />
+                    <Building class="text-red-700 " stroke-width="2" size="30" />
                 </div>
 
                 <!-- Texto -->
@@ -38,7 +38,7 @@
                 <!-- Grade de Imagens -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <img v-for="(img, index) in empresaImages" :key="index" :src="img" alt="Imagem Empresa"
-                        class="rounded-lg object-cover w-full h-auto" />
+                        class="rounded-lg object-cover w-full h-auto icon-container2" />
                 </div>
 
             </div>
@@ -130,13 +130,13 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Produto 500g -->
                 <div class="flex flex-col items-center text-center">
-                    <img :src="soda500g" alt="Soda Cáustica 500g" class="mb-4 object-contain w-60 h-auto rounded-lg" />
+                    <img :src="soda500g" alt="Soda Cáustica 500g" class="icon-container2 mb-4 object-contain w-60 h-auto rounded-lg" />
                     <p class="text-lg font-semibold text-gray-700 font-montserrat">Soda Cáustica 500g</p>
                 </div>
 
                 <!-- Produto 1kg -->
                 <div class="flex flex-col items-center text-center">
-                    <img :src="soda1kg" alt="Soda Cáustica 1kg" class="mb-4 object-contain w-60 h-auto rounded-lg" />
+                    <img :src="soda1kg" alt="Soda Cáustica 1kg" class="icon-container2 mb-4 object-contain w-60 h-auto rounded-lg" />
                     <p class="text-lg font-semibold text-gray-700 font-montserrat">Soda Cáustica 1kg</p>
                 </div>
             </div>
@@ -310,28 +310,28 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                 <figure class="flex flex-col items-center">
-                    <img :src="ondeComprarImages[0]" alt="Mercados" class="w-40 h-40 object-contain mb-3 rounded-lg" />
+                    <img :src="ondeComprarImages[0]" alt="Mercados" class="icon-container2 w-40 h-40 object-contain mb-3 rounded-lg" />
                     <figcaption class="text-center text-gray-700 font-semibold text-lg">
                         Mercados
                     </figcaption>
                 </figure>
                 <figure class="flex flex-col items-center">
                     <img :src="ondeComprarImages[1]" alt="Agropecuárias"
-                        class="w-40 h-40 object-contain mb-3 rounded-lg" />
+                        class="icon-container2 w-40 h-40 object-contain mb-3 rounded-lg" />
                     <figcaption class="text-center text-gray-700 font-semibold text-lg">
                         Agropecuárias
                     </figcaption>
                 </figure>
                 <figure class="flex flex-col items-center">
                     <img :src="ondeComprarImages[2]" alt="Lojas de produtos de limpeza"
-                        class="w-40 h-40 object-contain mb-3 rounded-lg" />
+                        class="icon-container2 w-40 h-40 object-contain mb-3 rounded-lg" />
                     <figcaption class="text-center text-gray-700 font-semibold text-lg">
                         Lojas de produtos <br> de limpeza
                     </figcaption>
                 </figure>
                 <figure class="flex flex-col items-center">
                     <img :src="ondeComprarImages[3]" alt="Loja de material de construção"
-                        class="w-40 h-40 object-contain mb-3 rounded-lg" />
+                        class="icon-container2 w-40 h-40 object-contain mb-3 rounded-lg" />
                     <figcaption class="text-center text-gray-700 font-semibold text-lg">
                         Loja de material <br> de construção
                     </figcaption>
@@ -387,12 +387,20 @@
     transform: scale(1.1);
     box-shadow: 0 8px 15px rgba(164, 34, 30, 0.6);
 }
+
+.icon-container2 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-container2:hover {
+    transform: scale(1.05);
+}
 </style>
 
 
 <script setup>
 import { ref } from 'vue'
-import { ChevronLeft, BookMarked, Building2, BookAlert, ScrollText, Youtube, ListChecks, PackageOpen, ShoppingCart } from 'lucide-vue-next'
+import { ChevronLeft, BookMarked, Building, BookAlert, ScrollText, Youtube, ListChecks, PackageOpen, ShoppingCart } from 'lucide-vue-next'
 
 import Capa from '../assets/identidade/home_teste3.png'
 import Missao from '../assets/empresa/missao.png'

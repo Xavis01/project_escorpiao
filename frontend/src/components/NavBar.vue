@@ -4,7 +4,7 @@
       <!-- Logo -->
       <router-link to="/#inicio">
         <div class="flex items-center justify-center h-full ml-10">
-          <img :src="Logo" alt="Logo Soda Escorpião" class="h-24 w-auto object-contain" />
+          <img :src="Logo" alt="Logo Soda Escorpião" class="icon-container h-24 w-auto object-contain" />
           <!-- <span class="text-xl font-montserrat font-bold text-red-600">SODA ESCORPIÃO</span> -->
         </div>
       </router-link>
@@ -161,5 +161,14 @@ watch(() => route.path, (newPath) => {
 .fade-leave-to {
   opacity: 0;
   transform: translateY(-10px);
+}
+
+.icon-container {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-container:hover {
+    transform: scale(1.05);
+    /* box-shadow: 0 8px 15px rgba(164, 34, 30, 0.6); */
 }
 </style>
