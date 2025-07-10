@@ -1,11 +1,14 @@
 <template>
     <div class="mt-16" style="background-color: #faf4ef;">
-        <section id="contato" class="max-w-6xl mx-auto px-6 pt-32 scroll-mt-32">
-            <div class="flex items-center gap-4 mb-8">
+        <section id="contato" class="max-w-6xl mx-auto px-6 pt-24    scroll-mt-32">
+            <div class="flex items-center gap-4 mb-4">
                 <router-link to="/contato" class="transition-transform duration-300 hover:-translate-x-1">
                     <ChevronLeft class="w-8 h-8 text-red-700 hover:text-red-600 transition-all duration-300" />
                 </router-link>
-                <h2 class="text-3xl font-extrabold text-red-700 font-montserrat">SEJA REVENDEDOR</h2>
+                <div class="flex items-center gap-4 mb-6 pt-6">
+                    <h2 class="text-3xl font-extrabold text-red-700 font-montserrat">SEJA REVENDEDOR</h2>
+                    <HeartHandshake class="text-red-700 " stroke-width="2" size="30" />
+                </div>
             </div>
 
             <form ref="formRef" @submit.prevent="sendEmail"
@@ -40,7 +43,20 @@
                     <textarea name="mensagem" v-model="form.mensagem" required rows="4"
                         class="w-full border border-gray-300 rounded px-4 py-2 focus:border-red-400 focus:outline-none transition"></textarea>
                 </div>
-                <div class="md:col-span-2 flex justify-end">
+                <div class="md:col-span-2 flex justify-between">
+
+                    <div class="relative group flex items-center">
+                        <CircleAlert class="h-4 w-4 text-gray-500 hover:text-black cursor-pointer"
+                            stroke="currentColor" />
+                        <div
+                            class="absolute left-6 w-64 text-sm bg-red-100 text-red-800 border border-red-300 px-3 py-2 rounded-md shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300 z-50">
+                            Os campos <span class="font-bold">Nome</span>, <span class="font-bold">E-mail</span>, <span
+                                class="font-bold">Telefone</span>, <span class="font-bold">Empresa</span>, <span
+                                class="font-bold">CNPJ</span>, e <span class="font-bold">Mensagem</span> são
+                            obrigatórios.
+                        </div>
+                    </div>
+
                     <button type="submit" :disabled="loading"
                         class="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-8 rounded transition-all duration-300 shadow hover:shadow-md active:scale-95 min-w-[120px] flex items-center justify-center gap-2">
                         <span v-if="!loading">Enviar</span>
@@ -63,7 +79,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { ChevronLeft, LoaderCircle } from 'lucide-vue-next'
+import { ChevronLeft, LoaderCircle, HeartHandshake, CircleAlert } from 'lucide-vue-next'
 import emailjs from '@emailjs/browser'
 
 const form = ref({

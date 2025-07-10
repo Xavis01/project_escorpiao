@@ -4,7 +4,7 @@
 
         <div id="inicio" name="Capa Inicial" class="relative pt-32">
             <img :src="Capa" alt="Capa Inicial" class="h-auto w-auto object-contain" loading="lazy" />
-            <router-link to="/#empresa">
+            <router-link to="/nossa-historia">
                 <button
                     class="absolute top-[500px] left-[550px] transform -translate-x-1/2 -translate-y-1/2 border border-white text-white px-10 py-3 rounded-full font-semibold tracking-wide transition duration-300 hover:bg-white hover:text-red-700 z-10">
                     SOBRE NÓS
@@ -12,34 +12,102 @@
             </router-link>
         </div>
 
-        <section id="empresa" class="max-w-6xl mx-auto px-6 pt-32 scroll-mt-32">
-            <!-- Título -->
-            <h2 class="text-3xl font-extrabold text-red-700 mb-6 font-montserrat">EMPRESA</h2>
+        <section id="empresa">
+            <div  class="max-w-6xl mx-auto px-6 pt-32 scroll-mt-32">
+                <!-- Título -->
+                <div class="flex items-center gap-4 ">
+                    <h2 class="text-3xl font-extrabold mt-6 text-red-700 mb-6 font-montserrat">EMPRESA</h2>
+                    <Building2 class="text-red-700 " stroke-width="2" size="30" />
+                </div>
 
-            <!-- Texto -->
-            <p class="text-gray-700 text-lg mb-8 leading-relaxed font-montserrat">
-                Desde nossa fundação em 1970, nos definimos como uma empresa responsável com nossos parceiros de
-                negócios em
-                todo Brasil. Dedicação, conhecimento, flexibilidade e respeito aos clientes são princípios que julgamos
-                imprescindíveis e sobre os quais conduzimos os nossos negócios. A prática deles no dia a dia de nossas
-                atividades nos faz crescer e evoluir.
-                <br /><br />
-                Ao mesmo tempo construímos uma empresa sólida, moderna e com produtos de qualidade, buscando sempre
-                atender
-                aos mais exigentes padrões de mercado.
-            </p>
+                <!-- Texto -->
+                <p class="text-gray-700 text-lg mb-8 leading-relaxed font-montserrat">
+                    Desde nossa fundação em 1970, nos definimos como uma empresa responsável com nossos parceiros de
+                    negócios em
+                    todo Brasil. Dedicação, conhecimento, flexibilidade e respeito aos clientes são princípios que
+                    julgamos
+                    imprescindíveis e sobre os quais conduzimos os nossos negócios. A prática deles no dia a dia de
+                    nossas
+                    atividades nos faz crescer e evoluir.
+                    <br /><br />
+                    Ao mesmo tempo construímos uma empresa sólida, moderna e com produtos de qualidade, buscando sempre
+                    atender
+                    aos mais exigentes padrões de mercado.
+                </p>
 
-            <!-- Grade de Imagens -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <img v-for="(img, index) in empresaImages" :key="index" :src="img" alt="Imagem Empresa"
-                    class="rounded-lg object-cover w-full h-auto" />
+                <!-- Grade de Imagens -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <img v-for="(img, index) in empresaImages" :key="index" :src="img" alt="Imagem Empresa"
+                        class="rounded-lg object-cover w-full h-auto" />
+                </div>
+
+            </div>
+
+            <br><br><br>
+
+            <!-- Seção Missão, Visão e Valores -->
+            <!-- Seção Missão, Visão e Valores com topo e base orgânicos -->
+            <div class="relative w-full bg-[#720e0e] text-white overflow-hidden py-16 font-montserrat">
+                <!-- Topo orgânico com SVG invertido -->
+                <div class="absolute top-0 left-0 w-full" style="z-index:1;">
+                    <svg viewBox="0 0 1440 120" class="w-full h-24 rotate-180" preserveAspectRatio="none">
+                        <path d="M0,80 Q360,120 720,90 Q1080,60 1440,100 L1440,120 L0,120 Z" fill="#faf4ef" />
+                    </svg>
+                </div>
+                <!-- Conteúdo principal -->
+                <div
+                    class="relative z-10 max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-stretch gap-12">
+                    <!-- Missão -->
+                    <div class="flex-1 flex flex-col items-center text-center">
+                        <div
+                            class="bg-[#a4221e] icon-container rounded-2xl w-20 h-20 flex items-center justify-center mb-4 shadow-lg">
+                            <img :src="Missao" alt="Missão" class="w-10 h-10" />
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 tracking-wide">MISSÃO</h3>
+                        <p class="text-base leading-relaxed">
+                            Oferecer produtos químicos com qualidade, agilidade e segurança, promovendo parcerias
+                            sólidas e crescimento sustentável. </p>
+                    </div>
+                    <!-- Visão -->
+                    <div class="flex-1 flex flex-col items-center text-center">
+                        <div
+                            class="bg-[#a4221e] icon-container rounded-2xl w-20 h-20 flex items-center justify-center mb-4 shadow-lg">
+                            <img :src="Visao" alt="Visão" class="w-10 h-10" />
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 tracking-wide">VISÃO</h3>
+                        <p class="text-base leading-relaxed">
+                            Ser referência nacional em distribuição de soda cáustica, reconhecida pela confiabilidade,
+                            compromisso, agilidade e excelência. </p>
+                    </div>
+                    <!-- Valores -->
+                    <div class="flex-1 flex flex-col items-center text-center">
+                        <div
+                            class="bg-[#a4221e] icon-container rounded-2xl w-20 h-20 flex items-center justify-center mb-4 shadow-lg">
+                            <img :src="Valor" alt="Valores" class="w-10 h-10" />
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 tracking-wide">VALORES</h3>
+                        <p class="text-base leading-relaxed">
+                            Foco no cliente, qualidade, confiança, responsabilidade socioambiental, inovação e
+                            valorização das pessoas. </p>
+                    </div>
+                </div>
+                <!-- Faixa inferior ondulada usando SVG -->
+                <div class="absolute bottom-0 left-0 w-full" style="z-index:1;">
+                    <svg viewBox="0 0 1440 120" class="w-full h-24" preserveAspectRatio="none">
+                        <path d="M0,80 Q360,120 720,90 Q1080,60 1440,100 L1440,120 L0,120 Z" fill="#faf4ef" />
+                    </svg>
+                </div>
             </div>
         </section>
+
 
         <!-- Section Produtos -->
         <section id="produtos" class="max-w-6xl mx-auto px-6 pt-32 scroll-mt-32">
             <!-- Título -->
-            <h2 class="text-3xl font-extrabold text-red-700 mb-6 font-montserrat">PRODUTOS</h2>
+            <div class="flex items-center gap-4 ">
+                <h2 class="text-3xl font-extrabold mt-6 text-red-700 mb-6 font-montserrat">PRODUTOS</h2>
+                <PackageOpen class="text-red-700 " stroke-width="2" size="30" />
+            </div>
 
             <!-- Texto descritivo -->
             <p class="text-gray-700 text-lg mb-6 leading-relaxed font-montserrat">
@@ -76,7 +144,10 @@
 
         <!-- Section Receitas -->
         <section id="receitas" class="max-w-6xl mx-auto px-6 pt-32 pb-16 scroll-mt-32 font-montserrat">
-            <h2 class="text-3xl font-extrabold text-red-700 mb-10">RECEITAS</h2>
+            <div class="flex items-center gap-4 ">
+                <h2 class="text-3xl font-extrabold mt-6 text-red-700 mb-6 font-montserrat">RECEITAS</h2>
+                <BookMarked class="text-red-700 " stroke-width="2" size="30" />
+            </div>
 
             <div class="flex flex-col md:flex-row gap-8 items-stretch">
 
@@ -226,7 +297,10 @@
 
 
         <section id="ondecomprar" class="max-w-6xl mx-auto px-6 pt-32 scroll-mt-32 font-montserrat">
-            <h2 class="text-3xl font-extrabold text-red-700 mb-6 font-montserrat">ONDE COMPRAR?</h2>
+            <div class="flex items-center gap-4 ">
+                <h2 class="text-3xl font-extrabold mt-6 text-red-700 mb-6 font-montserrat">ONDE COMPRAR?</h2>
+                <ShoppingCart class="text-red-700 " stroke-width="2" size="30" />
+            </div>
             <p class="text-gray-700 text-lg mb-8 leading-relaxed font-montserrat">
                 A Soda Cáustica Escorpião, localizada em Serra - Espírito Santo, é referência nacional no fornecimento
                 de soda cáustica para distribuidores que valorizam tradição, qualidade e agilidade.
@@ -304,14 +378,26 @@
 .fade-video-leave-from {
     opacity: 1;
 }
+
+.icon-container {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-container:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(164, 34, 30, 0.6);
+}
 </style>
 
 
 <script setup>
 import { ref } from 'vue'
-import { ChevronLeft, Instagram, Facebook, BookMarked, TriangleAlert, BookAlert, ScrollText, Youtube, ListChecks } from 'lucide-vue-next'
+import { ChevronLeft, BookMarked, Building2, BookAlert, ScrollText, Youtube, ListChecks, PackageOpen, ShoppingCart } from 'lucide-vue-next'
 
 import Capa from '../assets/identidade/home_teste3.png'
+import Missao from '../assets/empresa/missao.png'
+import Visao from '../assets/empresa/visao.png'
+import Valor from '../assets/empresa/valor.png'
 
 // Importação das imagens da seção Empresa
 import sobre1 from '../assets/empresa/sobre_1.webp'
