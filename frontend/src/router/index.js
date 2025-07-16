@@ -19,16 +19,23 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    // Se tem hash (ex: #produtos), scrolla até o elemento
+    // Se tem hash (ex: #produtos), scrolla depois do DOM montar
     if (to.hash) {
-      return {
-        el: to.hash,
-        behavior: 'smooth',
-      }
+      return new Promise((resolve) => {
+        // aguarda o próximo ciclo do DOM/render
+        setTimeout(() => {
+          resolve({
+            el: to.hash,
+            behavior: 'smooth',
+          })
+        }, 100) // 300ms é seguro, pode ajustar
+      })
     }
-    // Se não, vai para o topo
+
+    // Se volta para cima, ou muda de página sem hash
     return { top: 0 }
-  },
+  }
+  ,
 })
 
 export default router
