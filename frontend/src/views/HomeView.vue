@@ -214,7 +214,7 @@
                                 <ul class="list-disc list-inside mb-4 space-y-1 text-gray-700">
                                     <li>1 litro de água morna</li>
                                     <li>500 gramas de soda cáustica Escorpião</li>
-                                    <li>2 litros de óleo novo</li>
+                                    <li>2 litros de óleo novo ou usado</li>
                                     <li>1 litro de álcool acima de 70%</li>
                                     <li>1 litro de água sanitária</li>
                                     <li>55 litros de água fria</li>
