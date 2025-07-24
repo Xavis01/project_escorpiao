@@ -1,8 +1,8 @@
 <template>
     <div class="mt-16" style="background-color: #faf4ef;">
-        <section id="contato" class="max-w-6xl mx-auto px-6 pt-24 scroll-mt-32">
+        <section id="history" class="max-w-6xl mx-auto px-6 pt-24 scroll-mt-32">
             <div class="flex items-center gap-4 mb-4">
-                <router-link to="/" class="transition-transform duration-300 hover:-translate-x-1">
+                <router-link to="/#empresa" class="transition-transform duration-300 hover:-translate-x-1">
                     <ChevronLeft class="w-8 h-8 text-red-700 hover:text-red-600 transition-all duration-300" />
                 </router-link>
                 <div class="flex items-center gap-4 mb-6 pt-6">
