@@ -50,7 +50,7 @@
 
             <!-- Seção Missão, Visão e Valores -->
             <!-- Seção Missão, Visão e Valores com topo e base orgânicos -->
-            <div class="relative w-full bg-[#720e0e] text-white overflow-hidden py-16 font-montserrat">
+            <div class="relative w-full bg-[#720e0e] text-white overflow-hidden py-16 font-montserrat border-none">
                 <!-- Topo orgânico com SVG invertido -->
                 <div class="absolute top-0 left-0 w-full" style="z-index:1;">
                     <svg viewBox="0 0 1440 120" class="w-full h-24 rotate-180" preserveAspectRatio="none">
@@ -148,157 +148,101 @@
         </section>
 
         <!-- Section Receitas -->
+        <!-- Section RECEITAS (substitua toda a sua section de Receitas por esta) -->
         <section id="receitas" class="max-w-6xl mx-auto px-6 pt-32 pb-16 scroll-mt-32 font-montserrat">
             <div class="flex items-center gap-4 ">
                 <h2 class="text-3xl font-extrabold mt-6 text-red-700 mb-6 font-montserrat">RECEITAS</h2>
-                <BookMarked class="text-red-700 " stroke-width="2" size="30" />
+                <BookMarked class="text-red-700" stroke-width="2" size="30" />
             </div>
 
             <div class="flex flex-col md:flex-row gap-8 items-stretch">
+                <!-- Coluna de BOTÕES -->
+                <div class="flex flex-col w-full md:w-2/5 space-y-4 md:space-y-11">
 
-                <!-- Coluna da esquerda: botões -->
-                <div class="flex flex-col w-full md:w-2/5 space-y-11">
                     <!-- Botão Receita 1 -->
-                    <button @click="toggleReceita(1)"
-                        class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98]"
-                        :class="{ 'bg-red-100 border-red-400 text-red-700': receitaAberta === 1 }">
-                        Receita para Sabão em Barra
-                        <ChevronLeft class="w-5 h-5 transform transition-transform duration-300"
-                            :class="{ 'rotate-180': receitaAberta === 1 }" />
-                    </button>
+                    <div>
+                        <button @click="toggleReceita(1)"
+                            class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98] w-full"
+                            :class="{ 'bg-red-100 border-red-400 text-red-700': receitaAberta === 1 }">
+                            Receita para Sabão em Barra
+                            <template v-if="!isMobile">
+                                <ChevronLeft class="w-5 h-5 transform transition-transform duration-300"
+                                    :class="{ 'rotate-180': receitaAberta === 1 }" />
+                            </template>
+                            <template v-else>
+                                <ChevronUp class="w-5 h-5 transform transition-transform duration-300"
+                                    :class="{ 'rotate-180': receitaAberta === 1 }" />
+                            </template>
+                        </button>
+                        <!-- Mobile: Bloco somente logo abaixo do botão -->
+                        <transition name="fade" mode="out-in">
+                            <div v-if="receitaAberta === 1 && isMobile"
+                                class="mt-2 bg-white border rounded-lg shadow-md p-4 space-y-4 md:hidden">
+                                <ReceitaDetalhe :tipo="1" :videoReceitas="videoReceitas" />
+                            </div>
+                        </transition>
+                    </div>
 
                     <!-- Botão Receita 2 -->
-                    <button @click="toggleReceita(2)"
-                        class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98]"
-                        :class="{ 'bg-red-100 border-red-400 text-red-700': receitaAberta === 2 }">
-                        Receita para Sabão Líquido do Pará
-                        <ChevronLeft class="w-5 h-5 transform transition-transform duration-300"
-                            :class="{ 'rotate-180': receitaAberta === 2 }" />
-                    </button>
+                    <div>
+                        <button @click="toggleReceita(2)"
+                            class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98] w-full"
+                            :class="{ 'bg-red-100 border-red-400 text-red-700': receitaAberta === 2 }">
+                            Receita para Sabão Líquido do Pará
+                            <template v-if="!isMobile">
+                                <ChevronLeft class="w-5 h-5 transform transition-transform duration-300"
+                                    :class="{ 'rotate-180': receitaAberta === 2 }" />
+                            </template>
+                            <template v-else>
+                                <ChevronUp class="w-5 h-5 transform transition-transform duration-300"
+                                    :class="{ 'rotate-180': receitaAberta === 2 }" />
+                            </template>
+                        </button>
+                        <transition name="fade" mode="out-in">
+                            <div v-if="receitaAberta === 2 && isMobile"
+                                class="mt-2 bg-white border rounded-lg shadow-md p-4 space-y-4 md:hidden">
+                                <ReceitaDetalhe :tipo="2" :videoReceitas="videoReceitas" />
+                            </div>
+                        </transition>
+                    </div>
 
+                    <!-- Botão info -->
                     <router-link
-                        class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98]"
+                        class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98] w-full"
                         to="/info">
                         Informações de manuseio correto
                         <BookAlert />
                     </router-link>
+
+                    <!-- MOBILE: Mensagem de placeholder debaixo dos botões quando nenhuma receita está aberta -->
+                    <transition name="fade" mode="out-in">
+                        <div v-if="isMobile && receitaAberta === null"
+                            class="flex flex-col items-center justify-center bg-white border rounded-lg shadow-md p-8 text-center text-gray-600 space-y-4 mb-4 md:hidden">
+                            <BookMarked class="w-16 h-16 opacity-50" />
+                            <h3 class="text-lg font-semibold">Nenhuma receita selecionada</h3>
+                            <p>Escolha uma das receitas acima para ver o passo a passo completo.</p>
+                        </div>
+                    </transition>
                 </div>
 
-                <!-- Coluna da direita: conteúdo da receita -->
+                <!-- COLUNA DIREITA (DESKTOP) -->
                 <transition name="fade" mode="out-in">
-                    <div v-if="receitaAberta !== null" key="receita"
-                        class="flex-1 bg-white border rounded-lg shadow-md p-8 space-y-8 transition-all duration-500">
-
-                        <!-- Coluna 1: Ingredientes e preparo -->
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <!-- Ingredientes -->
-                            <div v-if="receitaAberta === 1">
-                                <h3 class="text-2xl font-bold mb-4 text-red-700">Sabão em Barra</h3>
-                                <div class="flex items-center justify-start mb-3">
-                                    <ScrollText class="mr-1" />
-                                    <h4 class="text-xl font-semibold">Ingredientes:</h4>
-                                </div>
-                                <ul class="list-disc list-inside mb-4 space-y-1 text-gray-700">
-                                    <li>1 kg de soda cáustica Escorpião</li>
-                                    <li>2 litros de água</li>
-                                    <li>4 litros de óleo de cozinha</li>
-                                    <li>1 litro de álcool</li>
-                                    <li>5 ml de essência</li>
-                                    <li>Opcional: você pode colocar elementos decorativos, como ervas aromáticas,
-                                        especiarias, flores secas, etc.</li>
-                                </ul>
-                            </div>
-
-                            <div v-if="receitaAberta === 2">
-                                <h3 class="text-2xl font-bold mb-4 text-red-700">Sabão Líquido do Pará</h3>
-                                <div class="flex items-center justify-start mb-3">
-                                    <ScrollText class="mr-1" />
-                                    <h4 class="text-xl font-semibold">Ingredientes:</h4>
-                                </div>
-                                <ul class="list-disc list-inside mb-4 space-y-1 text-gray-700">
-                                    <li>1 litro de água morna</li>
-                                    <li>500 gramas de soda cáustica Escorpião</li>
-                                    <li>2 litros de óleo novo ou usado</li>
-                                    <li>1 litro de álcool acima de 70%</li>
-                                    <li>1 litro de água sanitária</li>
-                                    <li>55 litros de água fria</li>
-                                    <li>160 gramas de bicarbonato de sódio</li>
-                                    <li>Opicional: corante e essência.</li>
-
-                                </ul>
-                            </div>
-
-                            <!-- Vídeo -->
-                            <div>
-                                <div class="flex items-center justify-start mb-3">
-                                    <Youtube class="mr-1" />
-                                    <h4 class="text-xl font-semibold ">Vídeo tutorial:</h4>
-                                </div>
-                                <transition name="fade-video" mode="out-in">
-                                    <iframe v-if="videoReceitas[receitaAberta]" :key="receitaAberta"
-                                        class="w-full h-64 rounded-lg" :src="videoReceitas[receitaAberta]"
-                                        title="Vídeo da Receita" frameborder="0" allowfullscreen></iframe>
-                                </transition>
-                            </div>
+                    <template v-if="!isMobile">
+                        <div v-if="receitaAberta !== null"
+                            class="flex-1 bg-white border rounded-lg shadow-md p-8 space-y-8 hidden md:block">
+                            <ReceitaDetalhe :tipo="receitaAberta" :videoReceitas="videoReceitas" />
                         </div>
-
-                        <!-- Linha 2: Modo de Preparo -->
-                        <div>
-                            <div class="flex items-center justify-start mb-3">
-                                <ListChecks class="mr-1" />
-                                <h4 class="text-xl font-semibold">Modo de preparo:</h4>
-                            </div>
-                            <div class="text-gray-700 leading-relaxed space-y-4" v-if="receitaAberta === 1">
-                                <p><span class="font-semibold">Passo 1:</span> Coloque no balde a soda cáustica e
-                                    adicione lentamente 2 litros de água quente.</p>
-                                <p><span class="font-semibold">Passo 2:</span> Misture com muito cuidado utilizando a
-                                    colher de pau até a soda cáustica dissolver completamente.</p>
-                                <p><span class="font-semibold">Passo 3:</span> Junte os 4 litros de óleo e continue
-                                    mexendo por 20 minutos.</p>
-                                <p><span class="font-semibold">Passo 4:</span> Acrescente o álcool e a essência.</p>
-                                <p><span class="font-semibold">Extra:</span> Se quiser, este é o momento para colocar
-                                    elementos de decoração. </p>
-                                <p><span class="font-semibold">Passo 5:</span> Misture até obter uma pasta consistente.
-                                </p>
-                                <p><span class="font-semibold">Passo 6:</span> Despeje o conteúdo em um caixote de
-                                    madeira forrado com um pano ou em formas, espalhe bem e acomode a pasta dentro do
-                                    recipiente</p>
-                                <p><span class="font-semibold">Passo 7:</span> Deixe secar por no mínimo 24 horas.</p>
-                                <p><span class="font-semibold">Passo 8:</span> Após a secagem, corte o sabão no tamanho
-                                    desejado e enrole os pedaços em papel filme.</p>
-                            </div>
-
-                            <div class="text-gray-700 leading-relaxed space-y-4" v-if="receitaAberta === 2">
-                                <p><span class="font-semibold">Passo 1:</span> Dilua a Soda Cáustica Escorpião na água
-                                    morna, com cuidado.</p>
-                                <p><span class="font-semibold">Passo 2:</span> Em seguida, adicione o óleo e o álcool,
-                                    mexendo bem por cerca de 10 minutos, até atingir o ponto de creme.</p>
-                                <p><span class="font-semibold">Passo 3:</span> Acrescente a água sanitária e a água
-                                    fria. Mexa bem até que a mistura fique uniforme.</p>
-                                <p><span class="font-semibold">Passo 4:</span> Dilua o bicarbonato em um copo com água e
-                                    depois adicione à mistura.</p>
-                                <p><span class="font-semibold">Extra:</span> Se desejar, este é o momento ideal para
-                                    adicionar o corante e a essência.</p>
-                                <p><span class="font-semibold">Passo 5:</span> Deixe a mistura descansar por 24 horas.
-                                </p>
-                                <br><br>
-                                Esse sabão pode ser utilizado para lavar roupas, louças ou em serviços domésticos
-                                gerais.
-                            </div>
+                        <div v-else
+                            class="flex-1 flex-col items-center justify-center bg-white border rounded-lg shadow-md p-10 text-center text-gray-600 space-y-4 hidden md:flex">
+                            <BookMarked class="w-20 h-20 opacity-50" />
+                            <h3 class="text-xl font-semibold">Nenhuma receita selecionada</h3>
+                            <p>Escolha uma das receitas ao lado para ver o passo a passo completo.</p>
                         </div>
-                    </div>
-
-                    <!-- Quando nenhuma receita estiver aberta -->
-                    <div v-else key="nenhuma"
-                        class="flex-1 flex flex-col items-center justify-center bg-white border rounded-lg shadow-md p-10 text-center text-gray-600 space-y-4">
-                        <BookMarked class="w-20 h-20 opacity-50" />
-                        <h3 class="text-xl font-semibold">Nenhuma receita selecionada</h3>
-                        <p>Escolha uma das receitas ao lado para ver o passo a passo completo.</p>
-                    </div>
+                    </template>
                 </transition>
             </div>
         </section>
+
 
 
         <section id="ondecomprar" class="max-w-6xl mx-auto px-6 pt-32 scroll-mt-32 font-montserrat">
@@ -313,7 +257,7 @@
                 Nosso produto pode ser encontrado nos seguintes estabelecimentos:
             </p>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                 <figure class="flex flex-col items-center">
                     <img :src="ondeComprarImages[0]" alt="Mercados"
                         class="icon-container2 w-40 h-40 object-contain mb-3 rounded-lg" />
@@ -343,6 +287,7 @@
                     </figcaption>
                 </figure>
             </div>
+
         </section>
         <br><br><br>
     </div>
@@ -405,8 +350,9 @@
 
 
 <script setup>
-import { ref } from 'vue'
-import { ChevronLeft, BookMarked, Building, BookAlert, ScrollText, Youtube, ListChecks, PackageOpen, ShoppingCart } from 'lucide-vue-next'
+import { ref, onMounted, onUnmounted } from 'vue'
+import ReceitaDetalhe from '../components/RecipeDetails.vue'
+import { ChevronLeft, ChevronUp, BookMarked, Building, BookAlert, ScrollText, Youtube, ListChecks, PackageOpen, ShoppingCart } from 'lucide-vue-next'
 
 import Capa from '../assets/identidade/home_teste3.png'
 import Missao from '../assets/empresa/missao.png'
@@ -452,9 +398,23 @@ const ondeComprarImages = [
 
 const receitaAberta = ref(null)
 
+
 function toggleReceita(num) {
     receitaAberta.value = receitaAberta.value === num ? null : num
 }
+
+// Responsividade mobile
+const isMobile = ref(window.innerWidth < 768)
+function handleResize() {
+    isMobile.value = window.innerWidth < 768
+}
+onMounted(() => {
+    window.addEventListener('resize', handleResize)
+    handleResize()
+})
+onUnmounted(() => {
+    window.removeEventListener('resize', handleResize)
+})
 
 const videoReceitas = {
     1: "https://www.youtube.com/embed/dQw4w9WgXcQ",
