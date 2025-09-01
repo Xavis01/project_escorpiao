@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white shadow-md fixed top-0 left-0 w-full z-50 h-24 sm:h-28 md:h-32">
+  <header class="bg-white shadow-md fixed top-0 left-0 w-full z-50 h-24 sm:h-28 md:h-32" style="z-index: 10000;">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 py-3 sm:py-4">
       <!-- Logo -->
       <router-link to="/#inicio">
