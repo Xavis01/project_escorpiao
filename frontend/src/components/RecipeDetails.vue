@@ -2,7 +2,8 @@
     <div>
         <!-- SABÃO EM BARRA -->
         <div v-if="tipo === 1" class="w-full">
-            <div class="w-full grid md:grid-cols-2 gap-8 mb-6">
+            <!-- <div class="w-full grid md:grid-cols-2 gap-8 mb-6"> -->
+            <div class="w-full grid md:grid-cols-1 gap-8 mb-6">
                 <!-- Ingredientes -->
                 <div>
                     <h3 class="text-2xl font-bold mb-4 text-red-700">Sabão em Barra</h3>
@@ -21,7 +22,7 @@
                     </ul>
                 </div>
                 <!-- Vídeo tutorial 100% quadrado -->
-                <div class="flex flex-col items-start">
+                <!-- <div class="flex flex-col items-start">
                     <div class="flex items-center mb-3 mt-2 md:mt-0">
                         <Youtube class="mr-1" />
                         <h4 class="text-xl font-semibold">Vídeo tutorial:</h4>
@@ -39,7 +40,7 @@
                                 allowfullscreen></iframe>
                         </div>
                     </transition>
-                </div>
+                </div> -->
             </div>
             <!-- Modo de preparo (abaixo no desktop/mobile) -->
             <div>
@@ -68,7 +69,8 @@
         </div>
         <!-- SABÃO LÍQUIDO -->
         <div v-if="tipo === 2" class="w-full">
-            <div class="w-full grid md:grid-cols-2 gap-8 mb-6">
+            <!-- <div class="w-full grid md:grid-cols-2 gap-8 mb-6"> -->
+            <div class="w-full grid md:grid-cols-1 gap-8 mb-6">
                 <div>
                     <h3 class="text-2xl font-bold mb-4 text-red-700">Sabão Líquido do Pará</h3>
                     <div class="flex items-center justify-start mb-3">
@@ -88,7 +90,7 @@
                 </div>
                 <!-- Dentro do grid de vídeo, substitua por: -->
                 <!-- Vídeo tutorial -->
-                <div class="flex flex-col items-start">
+                <!-- <div class="flex flex-col items-start">
                     <div class="flex items-center mb-3 mt-2 md:mt-0">
                         <Youtube class="mr-1" />
                         <h4 class="text-xl font-semibold">Vídeo tutorial:</h4>
@@ -108,7 +110,7 @@
                         </div>
                     </transition>
 
-                </div>
+                </div> -->
             </div>
             <div>
                 <div class="flex items-center justify-start mb-3">
