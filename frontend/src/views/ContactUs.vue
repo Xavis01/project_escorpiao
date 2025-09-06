@@ -6,8 +6,8 @@
                     <ChevronLeft class="w-8 h-8 text-red-700 hover:text-red-600 transition-all duration-300" />
                 </router-link>
                 <div class="flex items-center gap-4 mb-6 pt-6">
-                    <h2 class="text-3xl font-extrabold text-red-700 font-montserrat">FALE CONOSCO</h2>
-                    <MessageCircleQuestionMark class="text-red-700 " stroke-width="2" size="30" />
+                    <h2 class="text-3xl font-extrabold text-red-700 font-montserrat text-center">FALE CONOSCO</h2>
+                    <MessageCircleQuestionMark class="text-red-700 " stroke-width="2" :size="isMobile ? 45 : 30"  />
                 </div>
             </div>
 
@@ -75,7 +75,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { ChevronLeft, LoaderCircle, MessageCircleQuestionMark, CircleAlert } from 'lucide-vue-next'
 import emailjs from '@emailjs/browser'
 
@@ -128,4 +128,17 @@ function sendEmail() {
         error.value = true
     })
 }
+
+
+const isMobile = ref(window.innerWidth <= 767);
+
+function handleResize() {
+  isMobile.value = window.innerWidth <= 767;
+}
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+});
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize);
+});
 </script>

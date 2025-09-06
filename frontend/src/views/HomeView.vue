@@ -354,7 +354,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import ReceitaDetalhe from '../components/RecipeDetails.vue'
 import { ChevronLeft, ChevronUp, BookMarked, Building, BookAlert, ScrollText, Youtube, ListChecks, PackageOpen, ShoppingCart } from 'lucide-vue-next'
 
-import Capa from '../assets/identidade/home_teste3.png'
+import Capa from '../assets/identidade/HOME_PAGE.png'
 import Missao from '../assets/empresa/missao.png'
 import Visao from '../assets/empresa/visao.png'
 import Valor from '../assets/empresa/valor.png'
