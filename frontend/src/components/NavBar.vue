@@ -56,8 +56,9 @@
     <!-- Navegação Mobile -->
     <!-- Navegação Mobile -->
     <transition name="fade">
-      <div v-if="menuOpen"
+      <div v-if="menuOpen" ref="mobileMenu"
         class="md:hidden px-4 sm:px-8 py-3 bg-white shadow fixed left-0 right-0 top-24 sm:top-28 z-50 rounded-b-xl font-montserrat">
+
 
         <router-link to="/#empresa" class="block py-3 px-2 font-medium rounded transition"
           :class="activeSection === 'empresa' ? 'text-red-600 bg-red-50 font-bold border-l-4 border-red-600' : 'text-gray-600 hover:text-red-600'"
@@ -100,7 +101,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 import { Menu, X, Instagram, Facebook } from 'lucide-vue-next'
 import Logo from '../assets/LogoEscorpiao.png'
 import { useRoute, useRouter } from 'vue-router'
@@ -110,6 +111,8 @@ import { watch } from 'vue'
 const route = useRoute()
 const router = useRouter()
 const activeSection = ref('') // ID da seção ativa ou nome da rota
+const mobileMenu = ref(null)
+
 
 const menuOpen = ref(false)
 
@@ -167,6 +170,21 @@ watch(() => route.path, (newPath) => {
       activeSection.value = newPath.replace('/', '')
     }
   }
+})
+
+function handleClickOutside(event) {
+  // Testa se menu está aberto e se o clique não está dentro do menu mobile
+  if (menuOpen.value && mobileMenu.value && !mobileMenu.value.contains(event.target)) {
+    menuOpen.value = false
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('mousedown', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('mousedown', handleClickOutside)
 })
 
 </script>
