@@ -82,8 +82,8 @@
         </li>
         <li>
           Para manusear o produto, é obrigatório o uso de <strong>luvas</strong>, <strong>máscara</strong> e
+          <strong>óculos de proteção</strong>.
           <span class="inline-flex items-center">
-            <strong>óculos de proteção</strong>.
             <!-- Tooltip ao lado -->
             <span class="relative group ml-2">
               <CircleAlert class="h-4 w-4 text-gray-500 hover:text-black cursor-pointer"
