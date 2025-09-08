@@ -27,10 +27,10 @@
             <span class="font-semibold text-red-700">0800-118270</span>
             <span class="inline-flex items-center align-middle ml-2">
               <span class="relative group">
-                <CircleAlert class="h-4 w-4 text-gray-500 hover:text-black cursor-pointer align-middle"
-                  stroke="currentColor" />
+                <!-- <CircleAlert class="h-4 w-4 text-gray-500 hover:text-black cursor-pointer align-middle"
+                  stroke="currentColor" /> -->
                 <!-- Tooltip -->
-                <div class="tooltip-box">
+                <!-- <div class="tooltip-box tooltip-manuseio">
                   <span class="block font-bold mb-2">Primeiros Socorros</span>
                   <ul class="list-disc list-inside space-y-1 text-sm text-red-800">
                     <li><strong>Contato com a pele:</strong> Lavar com água abundante e sabão.
@@ -41,7 +41,7 @@
                     <li><strong>Ingestão:</strong> Não provocar vômito. Lavar a boca e procurar
                       socorro médico.</li>
                   </ul>
-                </div>
+                </div> -->
               </span>
             </span>
           </li>
