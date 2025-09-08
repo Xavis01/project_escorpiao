@@ -86,16 +86,16 @@
           <span class="inline-flex items-center">
             <!-- Tooltip ao lado -->
             <span class="relative group ml-2">
-              <CircleAlert class="h-4 w-4 text-gray-500 hover:text-black cursor-pointer"
-                stroke="currentColor" />
-              <div class="tooltip-box tooltip-manuseio">
+              <!-- <CircleAlert class="h-4 w-4 text-gray-500 hover:text-black cursor-pointer"
+                stroke="currentColor" /> -->
+              <!-- <div class="tooltip-box tooltip-manuseio">
                 <ul class="list-disc list-inside text-sm space-y-1">
                   <li>Luvas de proteção química (PVC ou nitrílica)</li>
                   <li>Óculos de proteção com vedação lateral</li>
                   <li>Avental e bota de PVC</li>
                   <li>Máscara facial em caso de poeiras ou névoa</li>
                 </ul>
-              </div>
+              </div> -->
             </span>
           </span>
         </li>
