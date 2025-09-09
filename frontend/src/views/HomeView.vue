@@ -68,8 +68,8 @@
                         </div>
                         <h3 class="text-lg font-bold mb-2 tracking-wide">MISSÃO</h3>
                         <p class="text-base leading-relaxed">
-                            Oferecer produtos químicos com qualidade, agilidade e segurança, promovendo parcerias
-                            sólidas e crescimento sustentável. </p>
+                            Fornecer produtos químicos com excelência, garantindo qualidade, agilidade e segurança para distribuidores em todo o Brasil,
+                            promovendo parcerias duradouras e contribuindo para o crescimento sustentável do setor. </p>
                     </div>
                     <!-- Visão -->
                     <div class="flex-1 flex flex-col items-center text-center">
@@ -417,7 +417,7 @@ onUnmounted(() => {
 })
 
 const videoReceitas = {
-    1: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    1: "https://www.youtube.com/embed/azPRpXrowmo",
     2: "https://www.youtube.com/embed/djV11Xbc914"
 }
 
