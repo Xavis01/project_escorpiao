@@ -52,8 +52,7 @@
 
         <!-- Ficha de Dados de Segurança -->
         <div class="flex flex-col items-center flex-1 fds-col">
-          <span
-            class="mb-3 text-center text-base font-semibold text-red-700 font-montserrat tracking-wide uppercase">
+          <span class="mb-3 text-center text-base font-semibold text-red-700 font-montserrat tracking-wide uppercase">
             Ficha de Dados de Segurança
           </span>
           <button
@@ -74,8 +73,7 @@
       </div>
 
       <!-- Lista manuseio -->
-      <ul
-        class="list-disc list-inside text-gray-700 text-lg mb-8 leading-relaxed font-montserrat info-text space-y-3">
+      <ul class="list-disc list-inside text-gray-700 text-lg mb-8 leading-relaxed font-montserrat info-text space-y-3">
         <li>
           Os utensílios utilizados para a diluição da soda cáustica devem ser de plástico resistente ao aquecimento.
           Nunca use para alimentos e sempre lave imediatamente com bastante água antes de reutilizar.
@@ -109,6 +107,35 @@
           Armazene num local ventilado, seco e fresco, em embalagens de polietileno fechadas e longe de metais e ácidos
         </li>
       </ul>
+
+      <br>
+
+      <!-- Bloco de vídeos -->
+      <div class="videos-wrapper" :class="{ 'flex-col': isMobile, 'flex-row': !isMobile }">
+        <!-- Vídeo 1 -->
+        <div class="video-block">
+          <h3 class="video-title font-montserrat font-bold text-xl text-red-700 mb-2 text-center">EPIs de segurança</h3>
+          <div class="video-box">
+            <iframe class="video-frame" width="100%" height="320" :height="isMobile ? 180 : 320" src="https://www.youtube.com/embed/azPRpXrowmo"
+              frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Linha divisória no desktop -->
+        <div v-if="!isMobile" class="video-divider"></div>
+
+        <!-- Vídeo 2 -->
+        <div class="video-block">
+          <h3 class="video-title font-montserrat font-bold text-xl text-red-700 mb-2 text-center">Como desentupir encanamento</h3>
+          <div class="video-box">
+            <iframe class="video-frame" width="100%" height="320" :height="isMobile ? 180 : 320" src="https://www.youtube.com/embed/qX86BTFrDls"
+              frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+
+
     </section>
     <br /><br /><br />
   </div>
@@ -143,9 +170,11 @@ onUnmounted(() => {
   align-items: center;
   gap: 1.5rem;
 }
+
 .info-text {
   flex: 3;
 }
+
 .divider {
   width: 2px;
   height: 240px;
@@ -153,6 +182,7 @@ onUnmounted(() => {
   margin: 0 1rem;
   border-radius: 1px;
 }
+
 .fds-col {
   max-width: 340px;
 }
@@ -178,6 +208,7 @@ onUnmounted(() => {
   transition: opacity 0.25s;
   overflow-wrap: break-word;
 }
+
 .group:hover .tooltip-box,
 .group:focus-within .tooltip-box {
   opacity: 1;
@@ -198,19 +229,23 @@ ul {
     align-items: stretch;
     gap: 1.5rem;
   }
+
   .divider {
     display: none;
   }
+
   .fds-col {
     max-width: 100%;
     margin-top: 0 !important;
     width: 100%;
   }
+
   .info-text {
     margin-bottom: 0.5rem;
   }
+
   /* Tooltip centralizada acima no mobile */
- .group .tooltip-box {
+  .group .tooltip-box {
     left: auto;
     right: auto;
     top: auto;
@@ -219,20 +254,25 @@ ul {
     max-width: 94vw;
     min-width: 210px;
     font-size: 13px;
-    box-shadow: 0 6px 34px 0 rgba(220,38,38,0.21);
+    box-shadow: 0 6px 34px 0 rgba(220, 38, 38, 0.21);
     margin-bottom: 4px;
   }
 
   /* Desloca o tooltip manuseio para mais à esquerda */
   .tooltip-manuseio {
-    right: 10% !important;     /* Ajuste o valor conforme necessidade, ex: 10% */
-    transform: none !important; /* Remove o translate para que o left 10% atue */
-    max-width: 90vw;           /* Variável para evitar overflow */
+    right: 10% !important;
+    /* Ajuste o valor conforme necessidade, ex: 10% */
+    transform: none !important;
+    /* Remove o translate para que o left 10% atue */
+    max-width: 90vw;
+    /* Variável para evitar overflow */
   }
 }
 
 /* Previne scroll lateral desnecessário sem cortar tooltips */
-:root, body, html {
+:root,
+body,
+html {
   width: 100vw;
   overflow-x: hidden;
   box-sizing: border-box;
@@ -244,4 +284,59 @@ li,
 section#info {
   overflow: visible !important;
 }
+
+.videos-wrapper {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 64px;
+}
+.videos-wrapper.flex-col {
+  flex-direction: column;
+  gap: 2rem;
+}
+.videos-wrapper.flex-row {
+  flex-direction: row;
+  gap: 2rem;
+}
+.video-block {
+  flex: 1;
+  min-width: 280px;
+  max-width: 520px;
+}
+.video-title {
+  margin-bottom: 12px;
+}
+.video-box {
+  width: 100%;
+}
+.video-frame {
+  border-radius: 12px;
+  background: #1a1a1a;
+  border: none;
+}
+.video-divider {
+  width: 2px;
+  height: 360px;
+  background: #dc2626;
+  border-radius: 2px;
+  margin: 0 16px;
+  margin-top: 12px
+}
+
+@media (max-width: 767px) {
+  .videos-wrapper {
+    flex-direction: column !important;
+    gap: 2rem;
+    margin-bottom: 40px;
+  }
+  .video-divider {
+    display: none;
+  }
+  .video-frame {
+    height: 180px !important;
+  }
+}
+
 </style>
