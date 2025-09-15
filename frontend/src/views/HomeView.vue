@@ -340,7 +340,21 @@
 }
 
 .icon-container2 {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  aspect-ratio: 1 / 1;        /* Mantém formato quadrado independente do tamanho */
+  object-fit: cover;          /* Cobre toda a área sem distorcer */
+  border-radius: 16px;        /* Mantém os cantos arredondados, pode ajustar */
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 auto;
+  display: block;
+}
+
+.grid img.icon-container2 {
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .icon-container2:hover {
