@@ -30,15 +30,26 @@
                 </p>
 
                 <!-- Grade de Imagens -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                     <img v-for="(img, index) in empresaImages" :key="index" :src="img" alt="Imagem Empresa"
-                        class="rounded-lg object-cover w-full h-auto icon-container2" />
+                        class="rounded-lg object-cover w-full h-auto icon-container3" />
                 </div>
+
+
+                <!-- mesmo botão, só que com cores invertidas -->
+                <!-- <div class="flex justify-center mt-10">
+                    <router-link to="/nossa-historia">
+                        <button
+                            class="border border-red-700 text-red-700 px-10 py-3 rounded-full font-semibold tracking-wide transition duration-300 hover:bg-red-700 hover:text-white z-10">
+                            SOBRE NÓS
+                        </button>
+                    </router-link>
+                </div> -->
 
                 <div class="flex justify-center mt-10">
                     <router-link to="/nossa-historia">
                         <button
-                            class="border border-red-700 text-red-700 px-10 py-3 rounded-full font-semibold tracking-wide transition duration-300 hover:bg-red-700 hover:text-white z-10">
+                            class="border border-red-700 bg-red-700 text-white px-10 py-3 rounded-full font-semibold tracking-wide transition duration-300 hover:bg-white hover:text-red-700 z-10">
                             SOBRE NÓS
                         </button>
                     </router-link>
@@ -340,6 +351,10 @@
 }
 
 .icon-container2 {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-container3 {
   width: 100%;
   aspect-ratio: 1 / 1;        /* Mantém formato quadrado independente do tamanho */
   object-fit: cover;          /* Cobre toda a área sem distorcer */
@@ -350,7 +365,7 @@
   display: block;
 }
 
-.grid img.icon-container2 {
+.grid img.icon-container3 {
   min-width: 0;
   min-height: 0;
   max-width: 100%;
@@ -379,8 +394,8 @@ import sobre2 from '../assets/empresa/sobre_2.jpg'
 import sobre3 from '../assets/empresa/sobre_6.jpg'
 import sobre4 from '../assets/empresa/sobre_8.jpg'
 import sobre5 from '../assets/empresa/sobre_5.webp'
-import sobre6 from '../assets/empresa/sobre_7.webp'
-import sobre7 from '../assets/empresa/sobre_3.webp'
+import sobre6 from '../assets/empresa/sobre_3.webp'
+import sobre7 from '../assets/empresa/sobre_7.webp'
 import sobre8 from '../assets/empresa/sobre_4.webp'
 
 import local1 from '../assets/ondeComprar/1.png'
@@ -397,9 +412,7 @@ const empresaImages = [
     sobre3,
     sobre4,
     sobre5,
-    sobre6,
-    sobre7,
-    sobre8
+    sobre6
 ]
 
 const ondeComprarImages = [
