@@ -141,19 +141,25 @@
             </p>
 
             <!-- Grid de produtos -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Produto 500g -->
                 <div class="flex flex-col items-center text-center">
                     <img :src="soda500g" alt="Soda Cáustica 500g"
-                        class="icon-container2 mb-4 object-contain w-60 h-auto rounded-lg" />
+                        class="icon-container2 object-contain w-60 h-auto rounded-lg" />
                     <p class="text-lg font-semibold text-gray-700 font-montserrat">Soda Cáustica 500g</p>
                 </div>
 
                 <!-- Produto 1kg -->
                 <div class="flex flex-col items-center text-center">
                     <img :src="soda1kg" alt="Soda Cáustica 1kg"
-                        class="icon-container2 mb-4 object-contain w-60 h-auto rounded-lg" />
+                        class="icon-container2 object-contain w-60 h-auto rounded-lg" />
                     <p class="text-lg font-semibold text-gray-700 font-montserrat">Soda Cáustica 1kg</p>
+                </div>
+
+                <div class="flex flex-col items-center text-center">
+                    <img :src="sodaliquida" alt="Soda Cáustica Líquida"
+                        class="icon-container2 object-contain w-60 h-auto rounded-lg" />
+                    <p class="text-lg font-semibold text-gray-700 font-montserrat">Soda Cáustica Líquida</p>
                 </div>
             </div>
         </section>
@@ -216,6 +222,32 @@
                             </div>
                         </transition>
                     </div>
+
+                    <div>
+                        <button @click="toggleReceita(3)"
+                            class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98] w-full"
+                            :class="{ 'bg-red-100 border-red-400 text-red-700': receitaAberta === 3 }">
+                            <span class="flex items-center gap-2">
+                                Vídeos de receitas de sabão
+                                <Instagram class="mr-2"/>
+                            </span>
+                            <template v-if="!isMobile">
+                                <ChevronLeft class="w-5 h-5 transform transition-transform duration-300"
+                                    :class="{ 'rotate-180': receitaAberta === 3 }" />
+                            </template>
+                            <template v-else>
+                                <ChevronUp class="w-5 h-5 transform transition-transform duration-300"
+                                    :class="{ 'rotate-180': receitaAberta === 3 }" />
+                            </template>
+                        </button>
+                        <transition name="fade" mode="out-in">
+                            <div v-if="receitaAberta === 3 && isMobile"
+                                class="mt-2 bg-white border rounded-lg shadow-md p-4 space-y-4 md:hidden">
+                                <ReceitaDetalhe :tipo="3" :videoReceitas="videoReceitas" />
+                            </div>
+                        </transition>
+                    </div>
+
 
                     <!-- Botão info -->
                     <router-link
@@ -381,7 +413,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import ReceitaDetalhe from '../components/RecipeDetails.vue'
-import { ChevronLeft, ChevronUp, BookMarked, Building, BookAlert, ScrollText, Youtube, ListChecks, PackageOpen, ShoppingCart } from 'lucide-vue-next'
+import { ChevronLeft, ChevronUp, BookMarked, Building, BookAlert, ScrollText, Youtube, Instagram, ListChecks, PackageOpen, ShoppingCart } from 'lucide-vue-next'
 
 import Capa from '../assets/identidade/HOME_PAGE.png'
 import Missao from '../assets/empresa/missao.png'
@@ -403,8 +435,10 @@ import local2 from '../assets/ondeComprar/2.png'
 import local3 from '../assets/ondeComprar/3.png'
 import local4 from '../assets/ondeComprar/4.png'
 
-import soda500g from '../assets/produto/sodaCaustica_500g.webp'
-import soda1kg from '../assets/produto/sodaCaustica_1kg.webp'
+import soda500g from '../assets/produto/novo1.png'
+import soda1kg from '../assets/produto/novo3.png'
+import sodaliquida from '../assets/produto/novo2.png'
+
 
 const empresaImages = [
     sobre1,

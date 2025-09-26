@@ -133,11 +133,25 @@
                 </div>
             </div>
         </div>
+
+        <div v-if="tipo === 3" class="w-full">
+            <h3 class="text-2xl font-bold mb-2 text-red-700 text-center">Nossas receitas no Instagram!</h3>
+            <p class="mb-4 text-center text-gray-600 font-semibold">clique para assistir</p>
+            <div class="grid gap-6 md:grid-cols-3">
+                <div v-for="(video, idx) in instagramVideos" :key="idx"
+                    class="rounded-xl overflow-hidden relative group shadow-lg cursor-pointer bg-gray-100 h-48 flex flex-col items-center justify-center space-y-3 p-4"
+                    @click="openInstagram(video.link)">
+                    <SquarePlay size="48" class="text-red-600" />
+                    <span class="text-lg font-semibold text-gray-800 text-center">{{ video.title }}</span>
+                </div>
+            </div>
+
+        </div>
     </div>
 </template>
 
 <script setup>
-import { ScrollText, Youtube, ListChecks } from 'lucide-vue-next'
+import { ScrollText, Youtube, ListChecks, Instagram, SquarePlay } from 'lucide-vue-next'
 defineProps(['tipo', 'videoReceitas'])
 
 import { ref, computed, onMounted, onUnmounted } from 'vue'
@@ -147,4 +161,44 @@ onMounted(() => { window.addEventListener('resize', onResize) })
 onUnmounted(() => { window.removeEventListener('resize', onResize) })
 const isDesktop = computed(() => windowWidth.value >= 768)
 
+import sobre1 from '../assets/empresa/sobre_1.jpg'
+
+const instagramVideos = [
+    {
+        title: 'Receita para sabão multiuso',
+        link: 'https://www.instagram.com/reel/DBhgOR0xtsr/?utm_source=ig_web_button_native_share',
+        thumb: sobre1
+    },
+    {
+        title: 'Receita para sabão caseiro com fubá',
+        link: 'https://www.instagram.com/reel/DGMJ_0PRR_8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
+        thumb: 'https://sodaescorpiao.com.br/thumb2.jpg'
+    },
+    {
+        title: 'Receita para sabão caseiro de limão',
+        link: 'https://www.instagram.com/reel/DHbr6B7RWKy/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
+        thumb: 'https://sodaescorpiao.com.br/thumb3.jpg'
+    }
+]
+
+function openInstagram(link) {
+    window.open(link, '_blank')
+}
+
 </script>
+
+<style scoped>
+.group {
+  transition: transform 0.5s, background-color 0.5s;
+}
+
+.group:hover {
+  background-color: #fef2f2; /* leve fundo vermelho para hover */
+  transform: scale(1.05);
+}
+
+.group:active {
+  transform: scale(0.98);
+}
+
+</style>
