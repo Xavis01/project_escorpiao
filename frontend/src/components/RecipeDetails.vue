@@ -139,13 +139,16 @@
             <p class="mb-4 text-center text-gray-600 font-semibold">clique para assistir</p>
             <div class="grid gap-6 md:grid-cols-3">
                 <div v-for="(video, idx) in instagramVideos" :key="idx"
-                    class="rounded-xl overflow-hidden relative group shadow-lg cursor-pointer bg-gray-100 h-48 flex flex-col items-center justify-center space-y-3 p-4"
+                    class="rounded-xl overflow-hidden relative group shadow-lg cursor-pointer h-48 flex items-center justify-center"
                     @click="openInstagram(video.link)">
-                    <SquarePlay size="48" class="text-red-600" />
-                    <span class="text-lg font-semibold text-gray-800 text-center">{{ video.title }}</span>
+                    <img :src="video.thumb" alt="Receita"
+                        class="card-img absolute inset-0 w-full h-full object-cover z-0 transition-all duration-500" />
+                    <div class="relative z-10 flex flex-col items-center justify-center w-full">
+                        <!-- <SquarePlay size="48" class="text-red-600 mb-2" /> -->
+                        <span class="text-lg font-semibold px-1 bg-black bg-opacity-30 text-white  text-center">{{ video.title }}</span>
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 </template>
@@ -161,23 +164,25 @@ onMounted(() => { window.addEventListener('resize', onResize) })
 onUnmounted(() => { window.removeEventListener('resize', onResize) })
 const isDesktop = computed(() => windowWidth.value >= 768)
 
-import sobre1 from '../assets/empresa/sobre_1.jpg'
+import thumb1 from '../assets/receitas/sabao_multiuso.jpg'
+import thumb2 from '../assets/receitas/sabao_fuba.png'
+import thumb3 from '../assets/receitas/sabao_limao.png'
 
 const instagramVideos = [
     {
         title: 'Receita para sabão multiuso',
         link: 'https://www.instagram.com/reel/DBhgOR0xtsr/?utm_source=ig_web_button_native_share',
-        thumb: sobre1
+        thumb: thumb1
     },
     {
         title: 'Receita para sabão caseiro com fubá',
         link: 'https://www.instagram.com/reel/DGMJ_0PRR_8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
-        thumb: 'https://sodaescorpiao.com.br/thumb2.jpg'
+        thumb: thumb2
     },
     {
         title: 'Receita para sabão caseiro de limão',
         link: 'https://www.instagram.com/reel/DHbr6B7RWKy/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
-        thumb: 'https://sodaescorpiao.com.br/thumb3.jpg'
+        thumb: thumb3
     }
 ]
 
@@ -189,16 +194,30 @@ function openInstagram(link) {
 
 <style scoped>
 .group {
-  transition: transform 0.5s, background-color 0.5s;
+    transition: transform 0.5s, background-color 0.5s;
 }
 
 .group:hover {
-  background-color: #fef2f2; /* leve fundo vermelho para hover */
-  transform: scale(1.05);
+    background-color: #fef2f2;
+    /* leve fundo vermelho para hover */
+    transform: scale(1.05);
 }
 
 .group:active {
-  transform: scale(0.98);
+    transform: scale(0.98);
 }
 
+.card-img {
+    filter: brightness(0.65) blur(3px);
+    transition: filter 0.5s;
+}
+
+/* Remove blur ao passar mouse */
+.group:hover .card-img {
+    filter: brightness(0.85) blur(0);
+}
+
+.drop-shadow {
+    text-shadow: 0 2px 8px #000, 0 0px 2px #b91c1c;
+}
 </style>
