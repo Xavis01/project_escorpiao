@@ -145,8 +145,11 @@
                         class="card-img absolute inset-0 w-full h-full object-cover z-0 transition-all duration-500" />
                     <div class="relative z-10 flex flex-col items-center justify-center w-full">
                         <!-- <SquarePlay size="48" class="text-red-600 mb-2" /> -->
-                        <span class="text-lg font-semibold px-1 text-white text-center">{{ video.title }}</span>
+                        <span
+                            class="card-title text-lg font-semibold px-1 text-white text-center transition-opacity duration-500">{{
+                            video.title }}</span>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -220,4 +223,16 @@ function openInstagram(link) {
 .drop-shadow {
     text-shadow: 0 2px 8px #000, 0 0px 2px #b91c1c;
 }
+
+.card-title {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.group:hover .card-title {
+  opacity: 0;
+  visibility: hidden;
+}
+
 </style>
