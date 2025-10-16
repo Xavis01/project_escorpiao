@@ -139,13 +139,13 @@
             <p class="mb-4 text-center text-gray-600 font-semibold">clique para assistir</p>
             <div class="grid gap-6 md:grid-cols-3">
                 <div v-for="(video, idx) in instagramVideos" :key="idx"
-                    class="rounded-xl overflow-hidden relative group shadow-lg cursor-pointer h-48 flex items-center justify-center"
+                    class="rounded-xl overflow-hidden relative group cursor-pointer h-48 flex items-center justify-center"
                     @click="openInstagram(video.link)">
                     <img :src="video.thumb" alt="Receita"
                         class="card-img absolute inset-0 w-full h-full object-cover z-0 transition-all duration-500" />
                     <div class="relative z-10 flex flex-col items-center justify-center w-full">
                         <!-- <SquarePlay size="48" class="text-red-600 mb-2" /> -->
-                        <span class="text-lg font-semibold px-1 bg-black bg-opacity-30 text-white  text-center">{{ video.title }}</span>
+                        <span class="text-lg font-semibold px-1 text-white text-center">{{ video.title }}</span>
                     </div>
                 </div>
             </div>
