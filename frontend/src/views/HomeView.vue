@@ -79,7 +79,8 @@
                         </div>
                         <h3 class="text-lg font-bold mb-2 tracking-wide">MISSÃO</h3>
                         <p class="text-base leading-relaxed">
-                            Fornecer produtos químicos com excelência, garantindo qualidade, agilidade e segurança para distribuidores em todo o Brasil,
+                            Fornecer produtos químicos com excelência, garantindo qualidade, agilidade e segurança para
+                            distribuidores em todo o Brasil,
                             promovendo parcerias duradouras e contribuindo para o crescimento sustentável do setor. </p>
                     </div>
                     <!-- Visão -->
@@ -174,7 +175,28 @@
 
             <div class="flex flex-col md:flex-row gap-8 items-stretch">
                 <!-- Coluna de BOTÕES -->
-                <div class="flex flex-col w-full md:w-2/5 space-y-4 md:space-y-11">
+                <div class="flex flex-col w-full md:w-2/5 space-y-4 md:space-y-3">
+
+                    <div class="relative">
+                        <span
+                            class="absolute -top-3 left-7 z-10 bg-red-100 text-red-700 text-xs font-semibold border border-red-200 rounded-lg px-2 py-0.5 shadow-sm select-none pointer-events-none">
+                            novidade !
+                        </span>
+                        <button @click="toggleReceita(4)"
+                            class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98] w-full z-0"
+                            :class="{ 'bg-red-100 border-red-400 text-red-700': receitaAberta === 4 }">
+                            Receita para Sabão com Soda Líquida
+                            <template v-if="!isMobile">
+                                <ChevronLeft class="w-5 h-5 transform transition-transform duration-300"
+                                    :class="{ 'rotate-180': receitaAberta === 4 }" />
+                            </template>
+                            <template v-else>
+                                <ChevronUp class="w-5 h-5 transform transition-transform duration-300"
+                                    :class="{ 'rotate-180': receitaAberta === 4 }" />
+                            </template>
+                        </button>
+                    </div>
+
 
                     <!-- Botão Receita 1 -->
                     <div>
@@ -229,7 +251,7 @@
                             :class="{ 'bg-red-100 border-red-400 text-red-700': receitaAberta === 3 }">
                             <span class="flex items-center gap-2">
                                 Vídeos de receitas de sabão
-                                <Instagram class="mr-2"/>
+                                <Instagram class="mr-2" />
                             </span>
                             <template v-if="!isMobile">
                                 <ChevronLeft class="w-5 h-5 transform transition-transform duration-300"
@@ -383,25 +405,28 @@
 }
 
 .icon-container2 {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .icon-container3 {
-  width: 100%;
-  aspect-ratio: 1 / 1;        /* Mantém formato quadrado independente do tamanho */
-  object-fit: cover;          /* Cobre toda a área sem distorcer */
-  border-radius: 16px;        /* Mantém os cantos arredondados, pode ajustar */
-  background: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin: 0 auto;
-  display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* Mantém formato quadrado independente do tamanho */
+    object-fit: cover;
+    /* Cobre toda a área sem distorcer */
+    border-radius: 16px;
+    /* Mantém os cantos arredondados, pode ajustar */
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;
+    display: block;
 }
 
 .grid img.icon-container3 {
-  min-width: 0;
-  min-height: 0;
-  max-width: 100%;
-  max-height: 100%;
+    min-width: 0;
+    min-height: 0;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .icon-container2:hover {

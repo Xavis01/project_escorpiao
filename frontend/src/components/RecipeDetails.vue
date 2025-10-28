@@ -147,12 +147,96 @@
                         <!-- <SquarePlay size="48" class="text-red-600 mb-2" /> -->
                         <span
                             class="card-title text-lg font-semibold px-1 text-white text-center transition-opacity duration-500">{{
-                            video.title }}</span>
+                                video.title }}</span>
                     </div>
 
                 </div>
             </div>
         </div>
+
+        <div v-if="tipo === 4" class="w-full">
+            <div class="w-full grid md:grid-cols-2 gap-8 mb-6">
+                <!-- Ingredientes -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-red-700">Sabão com Soda Líquida</h3>
+                    <div class="flex items-center justify-start mb-3">
+                        <ScrollText class="mr-1" />
+                        <h4 class="text-xl font-semibold">Ingredientes:</h4>
+                    </div>
+                    <ul class="list-disc list-inside mb-4 space-y-1 text-gray-700">
+                        <li>350 ml de Soda Cáustica Líquida Escorpião </li>
+                        <li>400 ml de óleo</li>
+                        <li>400 ml de álcool</li>
+                        <li>250 ml de água sanitária</li>
+                        <li>10 colheres de sopa de açúcar</li>
+                        <li>5 colheres de sopa de bicarbonato</li>
+                        <li>5 colheres de sopa de sal</li>
+                        <li>500 ml de desinfetante</li>
+                        <li>Lauril para dar espuma</li>
+                    </ul>
+                </div>
+
+                <!-- Vídeo tutorial no estilo de tipo 3 -->
+                <div>
+                    <h4 class="text-xl justify-center font-semibold mb-3 flex items-center">
+                        <Instagram class="mr-1" /> Vídeo tutorial
+                    </h4>
+                    <div class="rounded-xl overflow-hidden relative group cursor-pointer h-56 w-56 flex items-center justify-center max-w-md mx-auto"
+                        @click="openInstagram('https://www.instagram.com/reel/DQKq8EMkdP4/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==')">
+                        <img :src="thumb4" alt="Sabão com Soda Líquida"
+                            class="card-img absolute inset-0 w-full h-full object-cover z-0 transition-all duration-500" />
+                        <div class="relative z-10 flex flex-col items-center justify-center w-full">
+                            <span
+                                class="card-title text-lg font-semibold px-1 text-white text-center transition-opacity duration-500">Clique para assistir no Instagram!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modo de preparo -->
+            <div>
+                <div class="flex items-center justify-start mb-3">
+                    <ListChecks class="mr-1" />
+                    <h4 class="text-xl font-semibold">Modo de preparo:</h4>
+                </div>
+                <div class="text-gray-700 leading-relaxed space-y-4">
+                    <p>
+                        <span class="font-semibold">Passo 1:</span> Em um recipiente, comece misturando o óleo e o
+                        álcool.
+                    </p>
+                    <p>
+                        <span class="font-semibold">Passo 2:</span> Adicione em seguida, a Soda Líquida e misture um
+                        pouco para dissolver.
+                    </p>
+                    <p>
+                        <span class="font-semibold">Passo 3:</span> Acrescente as 10 colheres de açúcar dissolvido em
+                        500
+                        ml de água quente.
+                    </p>
+                    <p>
+                        <span class="font-semibold">Passo 4:</span> Em outro recipiente, adicione 8 litros de água em
+                        temperatura ambiente, 5 colheres de sal e 5 colheres de bicarbonato.
+                    </p>
+                    <p>
+                        <span class="font-semibold">Passo 5:</span> Após diluir, adicione a mistura com Soda Líquida na
+                        mistura
+                        com água e continue a mexer.
+                    </p>
+                    <p>
+                        <span class="font-semibold">Passo 6:</span> Acrescente água sanitária e mais água até chegar no
+                        ponto
+                        que desejar.
+                    </p>
+                    <p>
+                        <span class="font-semibold">Passo 7:</span> Para finalizar, adicione o lauril e o desinfetante,
+                        misture
+                        bem e deixe curar por <span class="font-semibold">7 dias</span>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </template>
 
@@ -170,6 +254,7 @@ const isDesktop = computed(() => windowWidth.value >= 768)
 import thumb1 from '../assets/receitas/sabao_multiuso.jpg'
 import thumb2 from '../assets/receitas/sabao_fuba.png'
 import thumb3 from '../assets/receitas/sabao_limao.png'
+import thumb4 from '../assets/receitas/sabao_sodaLiquido.jpg'
 
 const instagramVideos = [
     {
@@ -225,14 +310,13 @@ function openInstagram(link) {
 }
 
 .card-title {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.5s, visibility 0.5s;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s, visibility 0.5s;
 }
 
 .group:hover .card-title {
-  opacity: 0;
-  visibility: hidden;
+    opacity: 0;
+    visibility: hidden;
 }
-
 </style>
