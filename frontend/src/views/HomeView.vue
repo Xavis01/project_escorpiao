@@ -186,6 +186,7 @@
                             class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98] w-full z-0"
                             :class="{ 'bg-red-100 border-red-400 text-red-700': receitaAberta === 4 }">
                             Receita para Sabão com Soda Líquida
+                            <!-- ícone do botão -->
                             <template v-if="!isMobile">
                                 <ChevronLeft class="w-5 h-5 transform transition-transform duration-300"
                                     :class="{ 'rotate-180': receitaAberta === 4 }" />
@@ -195,6 +196,13 @@
                                     :class="{ 'rotate-180': receitaAberta === 4 }" />
                             </template>
                         </button>
+                        <!-- ESTE BLOCO estava faltando -->
+                        <transition name="fade" mode="out-in">
+                            <div v-if="receitaAberta === 4 && isMobile"
+                                class="mt-2 bg-white border rounded-lg shadow-md p-4 space-y-4 md:hidden">
+                                <ReceitaDetalhe :tipo="4" :videoReceitas="videoReceitas" />
+                            </div>
+                        </transition>
                     </div>
 
 
