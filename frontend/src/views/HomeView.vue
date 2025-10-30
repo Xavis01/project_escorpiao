@@ -292,7 +292,7 @@
                         <div v-if="isMobile && receitaAberta === null"
                             class="flex flex-col items-center justify-center bg-white border rounded-lg shadow-md p-8 text-center text-gray-600 space-y-4 mb-4 md:hidden">
                             <BookMarked class="w-16 h-16 opacity-50" />
-                            <h3 class="text-lg font-semibold">Nenhuma receita selecionada</h3>
+                            <h3 class="text-lg font-semibold">Nenhuma receita teste selecionada</h3>
                             <p>Escolha uma das receitas acima para ver o passo a passo completo.</p>
                         </div>
                     </transition>
