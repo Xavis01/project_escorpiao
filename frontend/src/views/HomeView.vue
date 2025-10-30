@@ -183,7 +183,7 @@
                             novidade !
                         </span>
                         <button @click="toggleReceita(4)"
-                            class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98] w-full z-0"
+                            class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white md:hover:bg-red-50 md:hover:border-red-400 md:hover:text-red-700 transition-all duration-300 shadow-sm md:hover:shadow-md active:scale-[0.98] w-full z-0"
                             :class="{ 'bg-red-100 border-red-400 text-red-700': receitaAberta === 4 }">
                             Receita para Sabão com Soda Líquida
                             <!-- ícone do botão -->
@@ -209,7 +209,7 @@
                     <!-- Botão Receita 1 -->
                     <div>
                         <button @click="toggleReceita(1)"
-                            class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98] w-full"
+                            class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white md:hover:bg-red-50 md:hover:border-red-400 md:hover:text-red-700 transition-all duration-300 shadow-sm md:hover:shadow-md active:scale-[0.98] w-full"
                             :class="{ 'bg-red-100 border-red-400 text-red-700': receitaAberta === 1 }">
                             Receita para Sabão em Barra
                             <template v-if="!isMobile">
@@ -233,7 +233,7 @@
                     <!-- Botão Receita 2 -->
                     <div>
                         <button @click="toggleReceita(2)"
-                            class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98] w-full"
+                            class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white md:hover:bg-red-50 md:hover:border-red-400 md:hover:text-red-700 transition-all duration-300 shadow-sm md:hover:shadow-md active:scale-[0.98] w-full"
                             :class="{ 'bg-red-100 border-red-400 text-red-700': receitaAberta === 2 }">
                             Receita para Sabão Líquido do Pará
                             <template v-if="!isMobile">
@@ -255,7 +255,7 @@
 
                     <div>
                         <button @click="toggleReceita(3)"
-                            class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98] w-full"
+                            class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white md:hover:bg-red-50 md:hover:border-red-400 md:hover:text-red-700 transition-all duration-300 shadow-sm md:hover:shadow-md active:scale-[0.98] w-full"
                             :class="{ 'bg-red-100 border-red-400 text-red-700': receitaAberta === 3 }">
                             <span class="flex items-center gap-2">
                                 Vídeos de receitas de sabão
@@ -281,7 +281,7 @@
 
                     <!-- Botão info -->
                     <router-link
-                        class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-400 hover:text-red-700 transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98] w-full"
+                        class="flex justify-between items-center text-lg font-semibold text-gray-800 px-5 py-4 rounded-lg border border-gray-200 bg-white md:hover:bg-red-50 md:hover:border-red-400 md:hover:text-red-700 transition-all duration-300 shadow-sm md:hover:shadow-md active:scale-[0.98] w-full"
                         to="/info">
                         Informações de manuseio correto
                         <BookAlert />
