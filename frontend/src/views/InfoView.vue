@@ -146,7 +146,7 @@ import { Info, Download, ShieldAlert, CircleAlert } from 'lucide-vue-next'
 import { ref, onMounted, onUnmounted } from 'vue';
 
 function openPdf() {
-  window.open('/static/uploads/FDS-ESCORPIAO-2024-ATUALIZADA.pdf', '_blank')
+  window.open('/static/uploads/FDS-ESCORPIAO-2026-ATUALIZADA.pdf', '_blank')
 }
 
 // Detecta se é mobile (≤ 767px)
