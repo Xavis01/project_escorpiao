@@ -64,6 +64,7 @@
             <div
                 class="mt-12 pt-6 border-t border-gray-200 text-center text-sm text-gray-500 font-montserrat tracking-wide">
                 <p>© 2025 Soda Cáustica Escorpião. Todos os direitos reservados.</p>
+                <p class="mt-2 text-xs opacity-75">Desenvolvido por Lucas Xavier</p>
             </div>
         </div>
     </footer>
