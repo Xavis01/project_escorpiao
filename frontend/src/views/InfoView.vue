@@ -174,7 +174,7 @@
             class="bg-white p-6 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_20px_50px_rgba(185,28,28,0.1)] transition-shadow duration-500 w-full group">
             <h3
               class="video-title font-montserrat font-bold text-xl text-gray-800 mb-4 text-center group-hover:text-red-700 transition-colors">
-              Como Desentupir</h3>
+              Como Desentupir - teste</h3>
             <div class="video-box overflow-hidden rounded-2xl">
               <iframe class="video-frame w-full" :height="isMobile ? 180 : 250"
                 src="https://www.youtube.com/embed/qX86BTFrDls" frameborder="0" allowfullscreen></iframe>
