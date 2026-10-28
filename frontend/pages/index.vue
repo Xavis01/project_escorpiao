@@ -41,32 +41,32 @@
         </div>
 
         <section aria-label="Números da Soda Cáustica Escorpião" class="w-full bg-brand-800 text-white reveal-element">
-            <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-white/15 px-4 sm:px-6 lg:px-8">
-                <div class="flex min-h-36 items-center gap-4 px-5 py-7 md:px-8">
-                    <CalendarDays class="h-16 w-16 shrink-0 text-brand-200" stroke-width="1.5" aria-hidden="true" />
+            <div class="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-white/15 px-4 sm:px-6 lg:px-8">
+                <div class="flex min-h-36 flex-col items-start justify-center gap-3 px-4 py-6 sm:flex-row sm:items-center sm:justify-start sm:gap-4 sm:px-5 sm:py-7 xl:px-8">
+                    <CalendarDays class="h-10 w-10 shrink-0 text-brand-200 sm:h-16 sm:w-16 lg:h-12 lg:w-12 xl:h-16 xl:w-16" stroke-width="1.5" aria-hidden="true" />
                     <div>
-                        <p class="text-4xl font-extrabold tracking-tight md:text-5xl">1971</p>
+                        <p class="whitespace-nowrap text-3xl font-extrabold tracking-tight sm:text-4xl xl:text-5xl">1971</p>
                         <p class="mt-1 text-[11px] font-bold uppercase tracking-[.12em] text-brand-100">Ano de fundação</p>
                     </div>
                 </div>
-                <div class="flex min-h-36 items-center gap-4 px-5 py-7 md:px-8">
-                    <BadgeCheck class="h-16 w-16 shrink-0 text-brand-200" stroke-width="1.5" aria-hidden="true" />
+                <div class="flex min-h-36 flex-col items-start justify-center gap-3 px-4 py-6 sm:flex-row sm:items-center sm:justify-start sm:gap-4 sm:px-5 sm:py-7 xl:px-8">
+                    <BadgeCheck class="h-10 w-10 shrink-0 text-brand-200 sm:h-16 sm:w-16 lg:h-12 lg:w-12 xl:h-16 xl:w-16" stroke-width="1.5" aria-hidden="true" />
                     <div>
-                        <p class="text-4xl font-extrabold tracking-tight md:text-5xl">96-100<span class="text-2xl md:text-3xl">%</span></p>
-                        <p class="mt-1 text-[11px] font-bold uppercase tracking-[.12em] text-brand-100">Pureza da soda cáustica</p>
+                        <p class="whitespace-nowrap text-3xl font-extrabold tracking-tight sm:text-4xl xl:text-5xl">96-99<span class="text-xl sm:text-2xl xl:text-3xl">%</span></p>
+                        <p class="mt-1 text-[11px] font-bold uppercase tracking-[.12em] text-brand-100">Pureza da soda em escamas</p>
                     </div>
                 </div>
-                <div class="flex min-h-36 items-center gap-4 px-5 py-7 md:px-8">
-                    <MapPin class="h-16 w-16 shrink-0 text-brand-200" stroke-width="1.5" aria-hidden="true" />
+                <div class="flex min-h-36 flex-col items-start justify-center gap-3 px-4 py-6 sm:flex-row sm:items-center sm:justify-start sm:gap-4 sm:px-5 sm:py-7 xl:px-8">
+                    <MapPin class="h-10 w-10 shrink-0 text-brand-200 sm:h-16 sm:w-16 lg:h-12 lg:w-12 xl:h-16 xl:w-16" stroke-width="1.5" aria-hidden="true" />
                     <div>
-                        <p class="text-4xl font-extrabold tracking-tight md:text-5xl">ES</p>
+                        <p class="whitespace-nowrap text-3xl font-extrabold tracking-tight sm:text-4xl xl:text-5xl">ES</p>
                         <p class="mt-1 text-[11px] font-bold uppercase tracking-[.12em] text-brand-100">Sede em Serra · Espírito Santo</p>
                     </div>
                 </div>
-                <div class="flex min-h-36 items-center gap-4 px-5 py-7 md:px-8">
-                    <Globe2 class="h-16 w-16 shrink-0 text-brand-200" stroke-width="1.5" aria-hidden="true" />
+                <div class="flex min-h-36 flex-col items-start justify-center gap-3 px-4 py-6 sm:flex-row sm:items-center sm:justify-start sm:gap-4 sm:px-5 sm:py-7 xl:px-8">
+                    <Globe2 class="h-10 w-10 shrink-0 text-brand-200 sm:h-16 sm:w-16 lg:h-12 lg:w-12 xl:h-16 xl:w-16" stroke-width="1.5" aria-hidden="true" />
                     <div>
-                        <p class="text-4xl font-extrabold tracking-tight md:text-5xl">BR</p>
+                        <p class="whitespace-nowrap text-3xl font-extrabold tracking-tight sm:text-4xl xl:text-5xl">BR</p>
                         <p class="mt-1 text-[11px] font-bold uppercase tracking-[.12em] text-brand-100">Rede nacional de distribuidores</p>
                     </div>
                 </div>
@@ -186,7 +186,7 @@
                         <div>
                             <div class="flex items-center gap-3 text-brand-700"><FlaskConical class="h-5 w-5" aria-hidden="true" /><p class="text-xs font-bold uppercase tracking-[.16em]">Linha principal</p></div>
                             <h3 class="mt-3 text-3xl font-extrabold tracking-tight text-gray-900">Soda Cáustica</h3>
-                            <p class="mt-4 max-w-xl text-base leading-relaxed text-gray-700">Hidróxido de sódio com 98% de pureza, apresentado em escamas ou solução líquida para aplicações domésticas e industriais.</p>
+                            <p class="mt-4 max-w-xl text-base leading-relaxed text-gray-700">Hidróxido de sódio em escamas (98% de pureza) ou em solução líquida a 50%, para aplicações domésticas e industriais.</p>
                             <span class="line-cta mt-6">Conheça a linha <ArrowUpRight class="h-4 w-4" aria-hidden="true" /></span>
                         </div>
                         <div class="grid gap-4 sm:grid-cols-3">

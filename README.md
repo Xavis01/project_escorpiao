@@ -3,26 +3,26 @@
   <p align="center">
     A modern, responsive institutional website built from scratch for a chemical industry with over 50 years of tradition.
     <br/>
-    <strong>Vue.js 3 · Vite 6 · Tailwind CSS 3 · EmailJS · Lucide Icons</strong>
+    <strong>Nuxt 3 · Vue.js 3 · Tailwind CSS 3 · EmailJS · Lucide Icons</strong>
   </p>
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Nuxt-3-00DC82?style=for-the-badge&logo=nuxt.js&logoColor=white" />
   <img src="https://img.shields.io/badge/Vue.js-3-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white" />
-  <img src="https://img.shields.io/badge/Vite-6-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
   <img src="https://img.shields.io/badge/EmailJS-E8453C?style=for-the-badge&logo=maildotru&logoColor=white" />
   <img src="https://img.shields.io/badge/Lucide_Icons-F56565?style=for-the-badge&logo=lucide&logoColor=white" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
 </p>
 
 ---
 
 ## 📋 About the Project
 
-An institutional website built for **Soda Cáustica Escorpião**, a chemical industry founded in **1970** in the city of Vitória – ES, a national reference in the caustic soda segment. The project showcases the company, its products, homemade soap recipes, points of sale, and contact channels, all with a modern interface, fluid animations, and a responsive experience.
+An institutional website built for **Soda Cáustica Escorpião**, a chemical industry founded in **1971** in the city of Vitória – ES, a national reference in the caustic soda segment. The project showcases the company, its products, homemade soap recipes, points of sale, and contact channels, all with a modern interface, fluid animations, and a responsive experience.
 
-This is a 100% frontend **Single Page Application (SPA)**, requiring no backend, database, or dedicated server — ideal for static deployment on any platform.
+The site is built with **Nuxt 3** and deployed as a **static site (SSG)**: `nuxt generate` pre-renders every route to HTML, which improves SEO and load time. It needs no backend, database, or dedicated server, so it can be hosted on any static file platform.
 
 **🌐 Live project:** [sodaescorpiao.com.br](https://sodaescorpiao.com.br)
 
@@ -45,49 +45,40 @@ This is a 100% frontend **Single Page Application (SPA)**, requiring no backend,
 
 ## ✨ Features
 
-### 🏠 Home / Landing Page
-- **Full-screen hero cover image** (optimized in WebP)
-- **Company section** with a responsive image grid gallery and institutional text
-- **Mission, Vision and Values** with glassmorphism cards, floating icons and gradients
-- **Products section** with a visual catalog (Soda 500g, 1kg and Liquid) with hover effects and dynamic drop-shadow
-- **Interactive Recipes section** with a tab system (desktop) and accordion (mobile) for homemade soap recipes
-- **Instagram videos** with clickable thumbnails and direct reels integration
-- **Where to Buy section** with a grid of distributor categories
-- **"About Us"** and **"Handling Information"** call-to-action buttons
+### 🗺️ Pages
 
-### 📖 Our History (`/nossa-historia`)
-- Dedicated page about the company's history since the 1970s
-- Editorial layout with careful typography and entrance animations
+| Route | Content |
+|---|---|
+| `/` | Home: rotating banner, company figures, Company section, product lines, recipes, team and Where to Buy |
+| `/nossa-historia` | Company history since the 1970s |
+| `/produtos` | Catalog with both lines (Caustic Soda and Escorpião Casa) |
+| `/produto/[slug]` | One page per product: description, technical info, safety, SDS and WhatsApp purchase |
+| `/linha/soda-caustica` · `/linha/escorpiao-casa` | Product line pages |
+| `/receitas` · `/receita/[slug]` | Homemade soap recipes, each with its own page |
+| `/info` | Safety Data Sheets (SDS) as PDF, handling guide, emergency center and educational videos |
+| `/contato` | Contact channels and Contact Us form (EmailJS) |
+| `/contato/revendedor` | Become a Reseller form (EmailJS) |
+| `/contato/obrigado` | Submission confirmation (excluded from search indexing) |
+| `/politica-de-privacidade` · `/termos-de-uso` | Legal pages |
 
-### ℹ️ Information (`/info`)
-- **Safety Data Sheet (SDS)** with PDF download
-- **Handling guide** with informational cards (PPE, storage, clothing, fire fighting)
-- **Emergency center** with contact phone number
-- **Educational videos** from YouTube (PPE and unclogging)
+Old URLs keep working through redirects: `/contato/fale-conosco`, `/onde-comprar`, `/soda-caustica` and `/escorpiao-casa`.
 
-### 📞 Contact (`/contato`)
-- Central hub with two paths: **Become a Reseller** and **Contact Us**
-- Interactive cards with hover effects and router-link navigation
+### 🔎 SEO
+- Pre-rendered HTML on every route, with `lang="pt-BR"`, per-page title, description and Open Graph
+- `sitemap.xml` and `robots.txt` generated automatically (`@nuxtjs/sitemap` and `@nuxtjs/robots`)
+- Schema.org structured data (JSON-LD): organization, products, recipes and breadcrumbs
 
-### 🤝 Become a Reseller (`/contato/revendedor`)
-- Complete form with: Name, Email, Phone, Company, CNPJ (Tax ID) and Message
-- **Sent via EmailJS** (no backend needed!)
-- Visual feedback: loading spinner, success/error message
-- Required field validation with informative tooltip
-
-### 💬 Contact Us (`/contato/fale-conosco`)
-- General contact form with: Name, Email, Phone, Company (optional) and Message
-- **Sent via EmailJS** with full visual feedback
-- Same UX pattern as the reseller form
+### 📊 Analytics
+- Google Analytics 4 (gtag.js), with pageviews on in-site navigation as well
 
 ### 🎨 Design & UX
+- **Color design tokens** centralized in `assets/css/tokens.css`
+- **Reusable UI components** (`Badge`, `BaseButton`, `Card`, `SectionHeader`, `StatCard`)
 - **Scroll animations** with Intersection Observer (reveal, scale, slide)
-- **Fixed navbar** with backdrop blur, section scroll spy and animated indicator
-- **Mobile menu** floating card with slide-fade animation
+- **Fixed navbar** with a products menu and mobile menu
 - **Floating WhatsApp button** for direct contact
-- **Footer** with contact information, social media and credits
-- **Consistent color palette**: red tones (#720e0e), beige (#faf4ef) and white
-- **Typography**: Google Fonts Montserrat (500–800)
+- **Footer** with full address, emergency phone, CNPJ (Tax ID), social media and legal links
+- **Typography**: Google Fonts Montserrat (400 to 800)
 - **Fully responsive**: desktop, tablet and mobile
 
 ---
@@ -96,14 +87,14 @@ This is a 100% frontend **Single Page Application (SPA)**, requiring no backend,
 
 | Technology | Usage |
 |---|---|
-| **Vue.js 3** | SPA framework with Composition API (`<script setup>`) |
-| **Vite 6** | Ultra-fast build tool and dev server with HMR |
-| **Tailwind CSS 3.4** | Responsive utility-first styling |
-| **Vue Router 4** | SPA routing with custom scroll behavior (hash anchors) |
+| **Nuxt 3** | Vue framework with file-based routing, SSR and static generation |
+| **Vue.js 3** | Composition API (`<script setup>`) |
+| **Tailwind CSS 3.4** | Responsive utility-first styling (`@nuxtjs/tailwindcss`) |
+| **@nuxtjs/sitemap** · **@nuxtjs/robots** | Sitemap and robots.txt generated at build time |
 | **EmailJS** | Sends emails directly from the frontend (no backend) |
-| **Lucide Vue Next** | SVG icon library (40+ icons used) |
-| **Sharp** | Image optimization at build time (WebP conversion) |
-| **Google Fonts** | Typography: Montserrat (500, 600, 700, 800) |
+| **Lucide Vue Next** | SVG icon library |
+| **Sharp** | Image optimization script (WebP conversion) |
+| **Google Fonts** | Typography: Montserrat |
 
 ---
 
@@ -111,30 +102,32 @@ This is a 100% frontend **Single Page Application (SPA)**, requiring no backend,
 
 ```mermaid
 flowchart TD
-    CLIENT["🖥️ User - Browser\nVue.js 3 SPA\nTailwind CSS · Vue Router"]
+    BUILD["⚙️ nuxt generate\nPre-renders every route"]
+    STATIC["📦 .output/public\nHTML + JS + assets"]
+    CLIENT["🖥️ User - Browser\nReady HTML + Vue hydration"]
 
-    subgraph SPA["Frontend Application"]
+    subgraph APP["Nuxt Application"]
         direction TB
-        ROUTER["🧭 Vue Router\n6 Routes · Scroll Behavior\nHash Anchors"]
-        VIEWS["📄 6 Views\nHome · History · Info\nContact · Reseller · Contact Us"]
-        COMPONENTS["🧩 5 Components\nNavBar · Footer · RecipeDetails\nWhatsappButton · HelloWorld"]
-        ASSETS["🖼️ Optimized Assets\nWebP · PNG · JPG\n6 image categories"]
+        PAGES["📄 pages/\nFile-based routes\ndynamic products and recipes"]
+        DATA["🗂️ data/\nprodutos.js · receitas.js"]
+        COMPONENTS["🧩 components/\nNavBar · Footer · PageHero\nTeamSection · ui/*"]
+        COMPOSABLES["🔧 composables/\nJSON-LD · WhatsApp\nScroll reveal · isMobile"]
 
-        ROUTER --> VIEWS
-        VIEWS --> COMPONENTS
-        VIEWS --> ASSETS
+        PAGES --> DATA
+        PAGES --> COMPONENTS
+        PAGES --> COMPOSABLES
     end
 
     EMAILJS["📧 EmailJS API\nSends emails with no backend"]
+    GA["📊 Google Analytics 4"]
     YOUTUBE["🎬 YouTube Embeds\nEducational videos"]
-    INSTAGRAM["📸 Instagram Reels\nRecipe videos"]
-    WHATSAPP["💬 WhatsApp\nDirect contact"]
+    WHATSAPP["💬 WhatsApp\nPurchase and direct contact"]
 
-    CLIENT --> SPA
-    VIEWS -->|Forms| EMAILJS
-    VIEWS -->|Iframes| YOUTUBE
-    VIEWS -->|External links| INSTAGRAM
-    COMPONENTS -->|Direct link| WHATSAPP
+    APP --> BUILD --> STATIC --> CLIENT
+    CLIENT -->|Forms| EMAILJS
+    CLIENT -->|Pageviews| GA
+    CLIENT -->|Iframes| YOUTUBE
+    CLIENT -->|Links| WHATSAPP
 ```
 
 ---
@@ -145,49 +138,33 @@ flowchart TD
 project_escorpiao/
 │
 └── frontend/
-    ├── index.html                    # HTML entry point with meta tags and Google Fonts
-    ├── vite.config.js                # Vite configuration (Vue plugin)
-    ├── tailwind.config.cjs           # Tailwind configuration (Montserrat font)
-    ├── postcss.config.js             # PostCSS with Tailwind and Autoprefixer
+    ├── nuxt.config.ts                # Nuxt config: modules, SEO, redirects, EmailJS and GA
+    ├── tailwind.config.cjs           # Tailwind configuration
     ├── package.json                  # Dependencies and scripts
     ├── optimize-images.js            # Image optimization script (Sharp → WebP)
+    ├── app.vue                       # Root component + organization JSON-LD
+    ├── error.vue                     # Error / 404 page
     │
-    ├── public/
-    │   ├── IconeEscorpiaoQuadrado.png   # Favicon
-    │   └── static/uploads/              # PDFs (Safety Data Sheets)
+    ├── app/router.options.ts         # Scroll behavior (smooth scrolling to anchors)
+    ├── layouts/default.vue           # Default layout (NavBar + page + Footer + WhatsApp)
+    ├── pages/                        # One route per file (see the pages table)
+    ├── components/                   # NavBar, Footer, PageHero, TeamSection, RecipeDetails, WhatsappButton
+    │   └── ui/                       # Badge, BaseButton, Card, SectionHeader, StatCard
+    ├── composables/                  # useJsonLd, useWhatsapp, useScrollReveal, useIsMobile
+    ├── data/                         # Product and recipe data
+    ├── plugins/gtag.client.ts        # GA4 pageviews on in-site navigation
     │
-    └── src/
-        ├── App.vue                   # Root component (NavBar + Router View + Footer + WhatsApp)
-        ├── main.js                   # Vue app + Router bootstrap
-        ├── style.css                 # Global style reset
-        │
-        ├── router/
-        │   └── index.js              # 6 routes with custom scroll behavior
-        │
-        ├── views/
-        │   ├── HomeView.vue          # Full landing page (Company, Products, Recipes, Where to Buy)
-        │   ├── HomeHistory.vue       # "Our History" page
-        │   ├── InfoView.vue          # Safety information + handling + videos
-        │   ├── ContactView.vue       # Contact hub (Reseller / Contact Us)
-        │   ├── ContactDealer.vue     # "Become a Reseller" form (EmailJS)
-        │   └── ContactUs.vue         # "Contact Us" form (EmailJS)
-        │
-        ├── components/
-        │   ├── NavBar.vue            # Fixed navbar with scroll spy, mobile menu and social media
-        │   ├── Footer.vue            # Footer with contact info, social media and credits
-        │   ├── RecipeDetails.vue     # Recipes component (4 types: bar, Pará, videos, liquid)
-        │   ├── WhatsappButton.vue    # Floating WhatsApp button
-        │   └── HelloWorld.vue        # Default Vite component (unused)
-        │
-        └── assets/
-            ├── LogoEscorpiao.png     # Main logo
-            ├── empresa/              # Company section images (6 photos + mission/vision/values icons)
-            ├── identidade/           # Home cover image (optimized WebP)
-            ├── produto/              # Product images (500g, 1kg, liquid)
-            ├── receitas/             # Recipe video thumbnails
-            ├── ondeComprar/          # Point-of-sale icons
-            └── local/                # Location images
+    ├── assets/
+    │   ├── css/tokens.css            # Design tokens (colors)
+    │   ├── empresa/ identidade/ local/ nossa-equipe/
+    │   └── produto/ receitas/ ondeComprar/
+    │
+    └── public/
+        ├── IconeEscorpiaoQuadrado.png   # Favicon
+        └── static/uploads/              # Safety Data Sheet (SDS) PDFs
 ```
+
+> The PDFs `FDS-ESCORPIAO-2026-ATUALIZADA.pdf` and `FDS-ESCORPIAO-ESCAMA-2025.pdf` are copies of `FDS-ESCORPIAO-LIQUIDA.pdf` and `FDS-ESCORPIAO-ESCAMA.pdf`, kept so old links don't break. When updating an SDS, update both copies.
 
 ---
 
@@ -229,7 +206,7 @@ Each animation uses **staggered delays** (100ms–600ms) to create smooth cascad
 
 ### Prerequisites
 
-- **Node.js** version 18 or higher → [Download](https://nodejs.org/)
+- **Node.js** version 20 or higher → [Download](https://nodejs.org/)
 - **npm** (already comes with Node.js)
 
 ### Step by step
@@ -241,29 +218,29 @@ git clone https://github.com/Xavis01/project_escorpiao.git
 # 2. Enter the frontend folder
 cd project_escorpiao/frontend
 
-# 3. Install dependencies
-npm install
+# 3. Install dependencies (exact versions from package-lock.json)
+npm ci
 
 # 4. Start the development server
 npm run dev
 ```
 
-The site will be available at `http://localhost:5173` 🎉
+The site will be available at `http://localhost:3000` 🎉
 
 ### Other useful commands
 
 ```bash
-# Generate production build
-npm run build
+# Generate the production static site (output in .output/public)
+npm run generate
 
-# Preview the production build
-npm run preview
+# Serve the generated output locally
+npx serve .output/public
 
 # Optimize images (generates WebP versions)
 node optimize-images.js
 ```
 
-> **💡 Note:** Since this is a 100% frontend site (SPA), there is no need to configure a backend, database, or environment variables. Just install the dependencies and run!
+> **💡 Note:** Deployment is static: just publish the `.output/public` folder. There is no backend, database, or environment variables to configure.
 
 ---
 
@@ -285,6 +262,7 @@ The site was built with a **mobile-first** approach, ensuring a perfect display 
 | **YouTube** | Embedded educational videos (PPE, recipes) |
 | **Instagram** | Links to soap recipe reels |
 | **WhatsApp** | Floating direct contact button |
+| **Google Analytics 4** | Page view tracking |
 | **Google Fonts** | Montserrat typography |
 
 ---

@@ -10,7 +10,7 @@
                         </div>
                         <h2 id="soda-title" class="mt-3 text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl">Soda Cáustica</h2>
                         <p class="mt-4 max-w-2xl text-base leading-relaxed text-gray-700">
-                            Hidróxido de sódio com 98% de pureza, apresentado em escamas ou solução líquida para aplicações domésticas e industriais.
+                            Hidróxido de sódio em escamas (98% de pureza) ou em solução líquida a 50%, para aplicações domésticas e industriais.
                         </p>
                     </div>
                     <div>

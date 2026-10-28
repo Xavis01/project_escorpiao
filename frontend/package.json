@@ -17,12 +17,11 @@
     "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@nuxt/image": "^1.9.0",
     "@nuxtjs/robots": "^5.2.2",
     "@nuxtjs/sitemap": "^7.2.4",
     "@nuxtjs/tailwindcss": "^6.13.1",
     "autoprefixer": "^10.4.21",
-    "sharp": "^0.34.5",
+    "sharp": "^0.35.5",
     "tailwindcss": "^3.4.17"
   }
 }
